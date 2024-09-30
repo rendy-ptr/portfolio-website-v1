@@ -41,6 +41,7 @@
     z-index: 10;
     transition: color 0.3s ease-in-out;
     padding: 0.25rem 0.5rem;
+    color: #B0B0B0;
   }
   
   .navItem:hover .navText {
