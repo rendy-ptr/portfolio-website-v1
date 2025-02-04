@@ -6,7 +6,11 @@ const CustomTypingText = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const roles = ["Frontend Developer", "Backend Developer"];
+  const roles = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Machine Learning Engineer"
+  ];
   const staticText = "I am a ";
 
   useEffect(() => {

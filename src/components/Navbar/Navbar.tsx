@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
-  const navItems = ["Home", "About Me", "Contact Me"];
+  const navItems = ["Home", "About Me", "Tech Stack", "Contact Me"];
 
   return (
     <nav className="flex justify-between items-center">
