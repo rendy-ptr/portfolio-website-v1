@@ -9,7 +9,7 @@ const ProfileImages = ({ src, alt}: ProfileImageProps) => {
         <img
           src={src}
           alt={alt}
-          className="w-48 h-48 object-cover rounded-full shadow-lg"
+          className="w-32 h-32 object-cover rounded-xl shadow-lg outline outline-2 outline-white"
         />
       </div>
     );

@@ -1,13 +1,15 @@
+import React from "react";
 import "./App.css";
 import CustomTypingText from "./components/CustomTypingText/CustomTypingText";
 import Navbar from "./components/Navbar/Navbar";
 import ParticlesDemo from "./components/Particles/Particles";
 import Button from "./components/Buttons/Button";
 import ProfileImages from "./components/ProfileImages/index";
-import { SITE_TITLE, SITE_DESCRIPTION, BUTTONS } from "../src/constant/index";
+import { TITLE, BUTTONS } from "../src/constant/index";
 import { IconChevronRight, IconDownload } from "@tabler/icons-react";
 
-function App() {
+
+const App: React.FC = () => {
   return (
     <div className="relative min-h-screen">
       {/* Navbar tetap di posisi awal */}
@@ -22,15 +24,15 @@ function App() {
         {/* Teks dan Tombol */}
         <div className="animate-fadeIn">
           <h1 className="text-2xl font-semibold text-[#D6D6D6]">
-            Hello, My Name
+            {TITLE.TEXT}
           </h1>
-          <h1 className="text-4xl font-bold text-[#EAE8D9]">{SITE_TITLE}</h1>
+          <h1 className="text-4xl font-bold text-[#EAE8D9]">{TITLE.NAME}</h1>
           {/* CustomTypingText sedikit ke kiri */}
           <div className="ml-[-50px]">
             <CustomTypingText />
           </div>
           <p className="mt-4 text-xl font-semibold text-[#A3A3A3]">
-            {SITE_DESCRIPTION}
+            {TITLE.DESCRIPTION}
             <span className="waving-hand" role="img" aria-label="waving hand">
               👋🏻
             </span>
