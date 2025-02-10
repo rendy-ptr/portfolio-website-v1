@@ -6,7 +6,7 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto !important; /* Pastikan halaman bisa di-scroll */
 }
 
 @keyframes fadeIn {
