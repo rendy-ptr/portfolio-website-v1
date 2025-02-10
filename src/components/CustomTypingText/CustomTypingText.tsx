@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CUSTOM_TYPING } from "../../constant/index";
 
-const CustomTypingText = ({ delay = 2100 }) => {
+const CustomTypingText = ({ delay = 2500 }) => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
