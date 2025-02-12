@@ -16,3 +16,12 @@ export const CUSTOM_TYPING = {
     "Machine Learning Engineer"] as const,
   TEXT: "I am a ",
 };
+
+export const NAVBAR = {
+  TEXT: [
+    "Home",
+    "About Me",
+    "Tech Stack",
+    "Contact Me",
+  ]
+}
