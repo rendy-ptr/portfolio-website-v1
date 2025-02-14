@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -5,9 +7,30 @@
 }
 
 body {
+  font-family: "JetBrains Mono", serif;
   overflow-x: hidden;
   overflow-y: auto !important; /* Pastikan halaman bisa di-scroll */
 }
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 64px;
+  }
+}
+
 
 @keyframes fadeIn {
   from {

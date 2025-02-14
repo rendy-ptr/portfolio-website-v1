@@ -14,7 +14,7 @@ export default defineConfig({
     strictPort: true, // Agar tidak berpindah ke port lain jika 7632 sudah digunakan
     host: true, // Pastikan bisa diakses dari jaringan
   },
-  optimizeDeps: {
-    include: ["react", "react-dom"], // Pastikan Vite bisa melakukan pre-bundling
-  },
+  // optimizeDeps: {
+  //   include: ["react", "react-dom", "motion-react"], // Pastikan Vite bisa melakukan pre-bundling
+  // },
 });

@@ -16,7 +16,7 @@ const ParticlesDemo = () => {
     <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
       <Particles
         className="absolute inset-0"
-        quantity={1000}
+        quantity={100}
         ease={80}
         color={color}
         refresh

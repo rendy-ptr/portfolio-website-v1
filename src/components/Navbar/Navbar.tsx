@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       {/* Gunakan container dengan lebar maksimal yang sama seperti di App.tsx */}
       <div className="max-w-screen-xl mx-auto px-6 flex justify-between items-center py-4">
         <h1 className="sm:text-lg xl:text-xl text-lg font-bold cursor-pointer text-[#E0E0E0]">
-          Logo
+          {NAVBAR.TITLE}
         </h1>
         <ul className="flex gap-2 p-3 sm:text-lg xl:text-xl text-lg font-bold">
           {NAVBAR.TEXT.map((item, index) => (

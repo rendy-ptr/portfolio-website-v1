@@ -91,30 +91,33 @@ function Scene() {
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
     >
-      <edgesGeometry args={[new SphereGeometry(1, 10, 10)]} />
+      <edgesGeometry args={[new SphereGeometry(1, 8, 8)]} />
       <lineBasicMaterial color="#94a2b7" linewidth={1.5} />
     </lineSegments>
   );
 }
 
+// Globe.tsx
 export default function Globe() {
   return (
-    <div
-      className="p-4 flex-shrink-0"
-      style={{
-        backgroundColor: "#262626",
-        borderRadius: "50%",
-        width: "65px",
-        height: "65px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div className="w-[70px] h-[70px] flex justify-center items-center">
-        <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
-          <Scene />
-        </Canvas>
+    <div className="relative">
+      <div
+        className="flex-shrink-0"
+        style={{
+          backgroundColor: "#262626",
+          borderRadius: "50%",
+          width: "60px",
+          height: "60px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="w-[65px] h-[65px]">
+          <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
+            <Scene />
+          </Canvas>
+        </div>
       </div>
     </div>
   );
