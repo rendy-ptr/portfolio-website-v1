@@ -4,7 +4,7 @@ import { NAVBAR } from "../../constant/index";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-transparent z-50">
+    <nav className="fixed top-0 left-0 w-full bg-transparent z-2">
       {/* Gunakan container dengan lebar maksimal yang sama seperti di App.tsx */}
       <div className="max-w-screen-xl mx-auto px-6 flex justify-between items-center py-4">
         <h1 className="sm:text-lg xl:text-xl text-lg font-bold cursor-pointer text-[#E0E0E0]">

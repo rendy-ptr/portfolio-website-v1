@@ -1,31 +1,34 @@
-import React, { Suspense, lazy } from "react";
+import type React from "react";
+import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { TITLE, BUTTONS } from "../constant/index";
 import { IconChevronRight, IconDownload } from "@tabler/icons-react";
-import { fadeInUp, staggerContainer } from "../Animations/animation";
+import { CreateAnimation, staggerContainer } from "../Animations/animation";
+
+import Button from "../components/Buttons/Button";
 
 const ProfileImages = lazy(() => import("../components/ProfileImages/index"));
 const CustomTypingText = lazy(
   () => import("../components/CustomTypingText/CustomTypingText")
 );
-const Button = lazy(() => import("../components/Buttons/Button"));
 
 const HomeSection: React.FC = () => {
   return (
     <>
       <motion.div
         initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.5 }}
+        variants={staggerContainer(0.5)}
         className="flex flex-col items-center justify-center min-h-screen text-center z-10"
       >
-        <motion.div variants={fadeInUp}>
+        <motion.div variants={CreateAnimation("up", 2.0)}>
           <Suspense fallback={<div>Loading Profile...</div>}>
             <ProfileImages src="../../src/assets/prof-7.jpg" alt="Profile" />
           </Suspense>
         </motion.div>
 
-        <motion.div variants={fadeInUp}>
+        <motion.div variants={CreateAnimation("up", 2.0)}>
           <h1 className="text-2xl font-semibold text-[#D6D6D6]">
             {TITLE.TEXT}
           </h1>
@@ -45,14 +48,14 @@ const HomeSection: React.FC = () => {
 
         <motion.div
           className="flex justify-center mt-6 gap-3"
-          variants={fadeInUp}
+          variants={CreateAnimation("up", 2.0)}
         >
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Suspense fallback={<div>Loading Button...</div>}>
               <Button
                 onClick={() => console.log("Download CV")}
                 icon={<IconDownload size={24} />}
-                className="bg-black text-white hover:bg-gray-800"
+                variant="dark"
               >
                 {BUTTONS.DOWNLOAD_CV}
               </Button>
@@ -63,7 +66,7 @@ const HomeSection: React.FC = () => {
               <Button
                 onClick={() => console.log("Contact Me")}
                 icon={<IconChevronRight size={24} />}
-                className="bg-white text-black hover:bg-gray-200"
+                variant="light"
               >
                 {BUTTONS.CONTACT_ME}
               </Button>

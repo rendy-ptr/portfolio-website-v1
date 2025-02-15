@@ -9,7 +9,7 @@
 body {
   font-family: "JetBrains Mono", serif;
   overflow-x: hidden;
-  overflow-y: auto !important; /* Pastikan halaman bisa di-scroll */
+  overflow-y: scroll; /* Pastikan halaman bisa di-scroll */
 }
 
 .container {

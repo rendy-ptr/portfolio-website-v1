@@ -13,7 +13,7 @@ const ParticlesDemo = () => {
   }, [theme]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+    <div className="fixed top-0 left-0 w-full h-full z-1 pointer-events-none">
       <Particles
         className="absolute inset-0"
         quantity={100}

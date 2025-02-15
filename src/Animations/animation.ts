@@ -1,14 +1,31 @@
-export const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 10, y: 0, transition: { duration: 2.0 } },
+export const CreateAnimation = (
+  direction: string,
+  duration: number,
+) => {
+  const x = direction === "right" ? 50 : direction === "left" ? -50 : 0;
+  const y = direction === "up" ? 50 : direction === "down" ? -50 : 0;
+
+  return {
+    hidden: {
+      opacity: 0,
+      x,
+      y,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { duration, ease: "easeOut" },
+    },
+  };
 };
 
-export const staggerContainer = {
-  hidden: { opacity: 0 },
+
+export const staggerContainer = (stagger: number) => ({
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: stagger,
     },
   },
-};
+});

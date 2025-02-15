@@ -91,7 +91,7 @@ function Scene() {
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
     >
-      <edgesGeometry args={[new SphereGeometry(1, 8, 8)]} />
+      <edgesGeometry args={[new SphereGeometry(1, 10, 10)]} />
       <lineBasicMaterial color="#94a2b7" linewidth={1.5} />
     </lineSegments>
   );

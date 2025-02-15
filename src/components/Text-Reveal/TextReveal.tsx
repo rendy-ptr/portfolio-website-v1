@@ -14,8 +14,6 @@ const TextReveal: React.FC = () => {
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
   const controls = useAnimation();
 
-  // const text = `Hi there! 👋 I'm Afrizal Mufriz Fouji, I'm currently living in Bandung, Indonesia. I bring over 3 years of experience as a versatile Frontend Developer, I'm skilled at creating, developing, and managing complex websites, with a specialization in Reactjs and Nextjs. As a self-taught developer, I am driven by a passion for creating engaging and interactive websites. I am not just a coder but also a creative thinker, problem solver, and a perpetual learner, always eager to explore new technologies. Embracing a non-traditional path, I chose hands-on learning and real-world applications over the traditional university route, which has cultivated resilience and adaptability in my approach. I'm also a content creator on Tiktok and Instagram soon on Youtube, where I share my knowledge and experience in web development. I'm currently working as a Front-end Developer at PT Pemuda Inovasi Teknologi (Chatbiz) until now. I'm always open to new opportunities and collaborations, so feel free to reach out to me! 🚀`;
-
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
@@ -38,8 +36,8 @@ const TextReveal: React.FC = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 70%",
-            end: "bottom 70%",
+            start: "top 75%",
+            end: "bottom 75%",
             scrub: 1,
             markers: false,
           },
