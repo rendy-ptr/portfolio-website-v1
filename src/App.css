@@ -7,9 +7,11 @@
 }
 
 body {
-  font-family: "JetBrains Mono", serif;
+  font-family: "JetBrains Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  overflow-y: scroll; /* Pastikan halaman bisa di-scroll */
+  overflow-y: scroll;
 }
 
 .container {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Particles from "../../../@/components/magicui/particles";
+import Particles from "../magicui/particles";
 
 const ParticlesDemo = () => {
   const { theme } = useTheme();

@@ -2,10 +2,9 @@ import type React from "react";
 import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { TITLE, BUTTONS } from "../constant/index";
-import { IconChevronRight, IconDownload } from "@tabler/icons-react";
 import { CreateAnimation, staggerContainer } from "../Animations/animation";
-
-import Button from "../components/Buttons/Button";
+import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
+import { ChevronRight, Download } from "lucide-react";
 
 const ProfileImages = lazy(() => import("../components/ProfileImages/index"));
 const CustomTypingText = lazy(
@@ -27,7 +26,6 @@ const HomeSection: React.FC = () => {
             <ProfileImages src="../../src/assets/prof-7.jpg" alt="Profile" />
           </Suspense>
         </motion.div>
-
         <motion.div variants={CreateAnimation("up", 2.0)}>
           <h1 className="text-2xl font-semibold text-[#D6D6D6]">
             {TITLE.TEXT}
@@ -51,26 +49,22 @@ const HomeSection: React.FC = () => {
           variants={CreateAnimation("up", 2.0)}
         >
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <Suspense fallback={<div>Loading Button...</div>}>
-              <Button
-                onClick={() => console.log("Download CV")}
-                icon={<IconDownload size={24} />}
-                variant="dark"
-              >
-                {BUTTONS.DOWNLOAD_CV}
-              </Button>
-            </Suspense>
+            <InteractiveHoverButton
+              variant="default"
+              icon={<Download size={20} />}
+              onClick={() => console.log("Download")}
+            >
+              {BUTTONS.DOWNLOAD_CV}
+            </InteractiveHoverButton>
           </motion.div>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <Suspense fallback={<div>Loading Button...</div>}>
-              <Button
-                onClick={() => console.log("Contact Me")}
-                icon={<IconChevronRight size={24} />}
-                variant="light"
-              >
-                {BUTTONS.CONTACT_ME}
-              </Button>
-            </Suspense>
+            <InteractiveHoverButton
+              variant="inverted"
+              icon={<ChevronRight size={20} />}
+              onClick={() => console.log("Inverted Button")}
+            >
+              {BUTTONS.CONTACT_ME}
+            </InteractiveHoverButton>
           </motion.div>
         </motion.div>
       </motion.div>

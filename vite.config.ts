@@ -11,7 +11,7 @@ export default defineConfig({
   },
   server: {
     port: 9001, // Gunakan port yang diinginkan
-    strictPort: true, // Agar tidak berpindah ke port lain jika 7632 sudah digunakan
+    strictPort: false, // Agar tidak berpindah ke port lain jika 7632 sudah digunakan
     host: true, // Pastikan bisa diakses dari jaringan
   },
   // optimizeDeps: {
