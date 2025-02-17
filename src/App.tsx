@@ -4,6 +4,7 @@ import "./App.css";
 import HomeSection from "../src/Section/HomeSection";
 import AboutSection from "./Section/AboutSection";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import ExperienceSection from "./Section/ExperienceSection";
 
 const Navbar = lazy(() => import("./components/Navbar/Navbar"));
 const ParticlesDemo = lazy(() => import("./components/Particles/Particles"));
@@ -32,6 +33,7 @@ const App: React.FC = () => {
       <div className="container mx-auto min-h-screen">
         <HomeSection />
         <AboutSection />
+        <ExperienceSection />
         {/* Tambahkan div dengan height besar untuk memastikan ada scroll */}
         <div className="h-[200vh]" /> 
       </div>

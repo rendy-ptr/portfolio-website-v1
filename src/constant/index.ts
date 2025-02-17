@@ -13,7 +13,7 @@ export const CUSTOM_TYPING = {
   ROLES: [
     "Frontend Developer",
     "Backend Developer",
-    "Machine Learning Engineer"] as const,
+    "ML Engineer"],
   TEXT: "I am a ",
 };
 

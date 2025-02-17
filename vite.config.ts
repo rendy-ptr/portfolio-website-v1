@@ -14,6 +14,7 @@ export default defineConfig({
     strictPort: false, // Agar tidak berpindah ke port lain jika 7632 sudah digunakan
     host: true, // Pastikan bisa diakses dari jaringan
   },
+  assetsInclude: ["public", "**/*.glb"], // Pastikan Vite bisa mengakses folder public
   // optimizeDeps: {
   //   include: ["react", "react-dom", "motion-react"], // Pastikan Vite bisa melakukan pre-bundling
   // },
