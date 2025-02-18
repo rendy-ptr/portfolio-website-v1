@@ -1,0 +1,5 @@
+.canvas-container {
+  transform: none !important;
+  perspective: none !important;
+  position: fixed; /* Optional: Untuk menjaga posisi tetap */
+}

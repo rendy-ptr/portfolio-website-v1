@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import WebFont from "webfontloader";
+// import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop";
 import "./App.css";
 import HomeSection from "../src/Section/HomeSection";
 import AboutSection from "./Section/AboutSection";
@@ -16,16 +17,17 @@ const App: React.FC = () => {
         families: ["JetBrains Mono:100,200,300,400,500,600,700,800"],
       },
     });
+    window.history.scrollRestoration = "manual";
   }, []);
   return (
     <div className="relative">
       {/* ScrollProgress di posisi paling atas */}
       <ScrollProgress />
-      
+
       <Suspense fallback={<div>Loading Navbar...</div>}>
         <Navbar />
       </Suspense>
-      
+
       <Suspense fallback={<div>Loading Particles...</div>}>
         <ParticlesDemo />
       </Suspense>
@@ -35,7 +37,7 @@ const App: React.FC = () => {
         <AboutSection />
         <ExperienceSection />
         {/* Tambahkan div dengan height besar untuk memastikan ada scroll */}
-        <div className="h-[200vh]" /> 
+        <div className="h-[200vh]" />
       </div>
     </div>
   );

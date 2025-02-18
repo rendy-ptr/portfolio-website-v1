@@ -1,3 +1,4 @@
+
 export const CreateAnimation = (
   direction: string,
   duration: number,
@@ -15,7 +16,10 @@ export const CreateAnimation = (
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { duration, ease: "easeOut" },
+      transition: {
+        duration,
+        ease: "easeInOut",
+      }
     },
   };
 };
