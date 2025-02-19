@@ -1,12 +1,11 @@
-import type React from "react";
-import { Suspense, lazy } from "react";
-import { motion } from "framer-motion";
-import "../App.css";
-import { ABOUT_ME } from "../constant/index";
-import { CreateAnimation, staggerContainer } from "../Animations/animation";
-import TextReveal from "../components/Text-Reveal/TextReveal";
+"use client"
 
-const Globe = lazy(() => import("../components/Globes/globe"));
+import type React from "react";
+import { motion } from "framer-motion";
+import { ABOUT_ME } from "../constant/index";
+import { CreateAnimation, staggerContainer } from "../animations/animation";
+import TextReveal from "../components/Text-Reveal/TextReveal";
+import Globe from "../components/Globes/globe";  
 
 const AboutSection: React.FC = () => {
   return (
@@ -30,15 +29,13 @@ const AboutSection: React.FC = () => {
           variants={CreateAnimation("right", 1.0)}
           className="flex-shrink-0"
         >
-          <Suspense fallback={<div>Loading Globe...</div>}>
             <Globe />
-          </Suspense>
         </motion.div>
       </div>
 
       <motion.div
         variants={CreateAnimation("up", 1.0)}
-        className="mt-4"
+        className="mt-4 mb-8"
       >
         <TextReveal />
       </motion.div>

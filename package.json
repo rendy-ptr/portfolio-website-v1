@@ -4,16 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "next dev",
+    "build": "tsc -b && next build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "next start"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.0",
     "@react-three/cannon": "^6.6.0",
-    "@react-three/drei": "^9.121.4",
-    "@react-three/fiber": "^8.17.14",
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.15.0",
     "@react-three/rapier": "^1.5.0",
     "@tabler/icons-react": "^3.19.0",
     "class-variance-authority": "^0.7.0",
@@ -26,6 +26,7 @@
     "lucide-react": "^0.441.0",
     "meshline": "^3.3.1",
     "motion": "^12.4.2",
+    "next": "^14.2.16",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -1,5 +1,4 @@
-// @ts-nocheck
-
+"use client";
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
@@ -20,11 +19,7 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
-extend({ MeshLineGeometry, MeshLineMaterial });
-
-import cardGLB from "./card.glb";
-import lanyard from "./lanyard-2.png";
-
+extend({ MeshLineGeometry: MeshLineGeometry, MeshLineMaterial: MeshLineMaterial  });
 
 const segmentProps = {
   type: "dynamic",
@@ -35,7 +30,8 @@ const segmentProps = {
 } as const;
 
 function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
-  const band = useRef<THREE.Mesh<MeshLineGeometry, MeshLineMaterial>>(null);
+  const band =
+    useRef<THREE.Mesh<typeof MeshLineGeometry, typeof MeshLineMaterial>>(null);
   const fixed = useRef<RapierRigidBody>(null);
   const j1 = useRef<RapierRigidBody>(null);
   const j2 = useRef<RapierRigidBody>(null);
@@ -48,8 +44,8 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
   const [dragged, drag] = useState<THREE.Vector3 | false>(false);
   const [hovered, hover] = useState(false);
 
-  const { nodes, materials } = useGLTF(cardGLB); 
-  const texture = useTexture(lanyard);
+  const { nodes, materials } = useGLTF("/lanyard/card.glb"); 
+  const texture = useTexture("/lanyard/lanyard-2.png");
 
   const [curve] = useState(
     () =>
@@ -165,9 +161,9 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
               )
             }
           >
-            <mesh geometry={nodes.card.geometry}>
+            <mesh geometry={(nodes.card as THREE.Mesh).geometry}>
               <meshPhysicalMaterial
-                map={materials.base.map}
+                map={(materials.base as THREE.MeshStandardMaterial).map}
                 map-anisotropy={16}
                 clearcoat={1}
                 clearcoatRoughness={0.15}
@@ -176,23 +172,28 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
               />
             </mesh>
             <mesh
-              geometry={nodes.clip.geometry}
+              geometry={(nodes.clip as THREE.Mesh).geometry}
               material={materials.metal}
               material-roughness={0.3}
             />
-            <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            <mesh
+              geometry={(nodes.clamp as THREE.Mesh).geometry}
+              material={materials.metal}
+            />
           </group>
         </RigidBody>
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial
-          color="white"
-          depthTest={false}
-          useMap={true}
-          map={texture}
-          repeat={[-4, 1]}
-          lineWidth={0.3}
+        {...({
+          color: "white",
+          depthTest: false,
+          useMap: true,
+          map: texture,
+          repeat: [-4, 1],
+          lineWidth: 0.3,
+        } as any)}
         />
       </mesh>
     </>

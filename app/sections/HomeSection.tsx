@@ -1,12 +1,14 @@
+"use client"
+
 import type React from "react";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { TITLE, BUTTONS, CUSTOM_TYPING } from "../constant/index";
-import { CreateAnimation, staggerContainer } from "../Animations/animation";
+import { CreateAnimation, staggerContainer } from "../animations/animation";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { ChevronRight, Download } from "lucide-react";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import Badge from "@/blocks/Components/Lanyard/Lanyard";
+import Badge from "../blocks/Components/Lanyard/Lanyard";
 
 
 
