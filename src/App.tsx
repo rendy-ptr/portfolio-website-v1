@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import WebFont from "webfontloader";
-// import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop";
 import "./App.css";
 import HomeSection from "../src/Section/HomeSection";
 import AboutSection from "./Section/AboutSection";
