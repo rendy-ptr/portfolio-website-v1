@@ -34,4 +34,5 @@ export const ABOUT_ME = {
 
 export const EXPERIENCE = {
   TITLE: "Experience",
+  GITHUB: "Github"
 }

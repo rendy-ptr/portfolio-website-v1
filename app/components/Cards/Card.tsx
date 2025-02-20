@@ -1,9 +1,15 @@
-const CustomCard = () => {
+type CustomCardProps = {
+  title: string;
+  body: string;
+  footer: string;
+};
+
+const CustomCard = ({ title, body, footer }: CustomCardProps) => {
   return (
-    <div className="w-[20rem] bg-[#27272a] py-4 px-8 rounded-xl outline outline-2 outline-[#2e3949] flex flex-col h-[8rem]">
-      <h1 className="text-lg font-bold text-white">Title</h1>
-      <p className="text-sm text-[#76767d] mt-auto">Custom Card Component</p>
-      <p className="text-sm text-[#76767d]">Footer</p>
+    <div className="w-[30rem] bg-[#27272a] p-6 rounded-xl outline outline-1 outline-[#2e3949] shadow-[0_0_10px_#2e3949] flex flex-col gap-3">
+      <h1 className="text-lg font-semibold text-white">{title}</h1>
+      <p className="text-sm text-gray-400">{body}</p>
+      <p className="text-xs text-gray-500 opacity-80">{footer}</p>
     </div>
   );
 };
