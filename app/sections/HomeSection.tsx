@@ -1,28 +1,27 @@
-"use client"
+"use client";
 
 import type React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense, lazy } from "react";
 import { motion, useInView } from "framer-motion";
 import { TITLE, BUTTONS, CUSTOM_TYPING } from "../constant/index";
 import { CreateAnimation, staggerContainer } from "../animations/animation";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { ChevronRight, Download } from "lucide-react";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import Badge from "../blocks/Components/Lanyard/Lanyard";
+// import Badge from "../blocks/Components/Lanyard/Lanyard";
 
-
-
+const Badge = lazy(() => import("../blocks/Components/Lanyard/Lanyard"));
 
 const HomeSection: React.FC = () => {
-    const [isBadgeVisible, setIsBadgeVisible] = useState(false);
-    const badgeRef = useRef(null);
-    const isInView = useInView(badgeRef, { once: false, amount: 0.5 });
-  
-    if (isInView && !isBadgeVisible) {
-      setIsBadgeVisible(true);
-    } else if (!isInView && isBadgeVisible) {
-      setIsBadgeVisible(false);
-    }
+  const [isBadgeVisible, setIsBadgeVisible] = useState(false);
+  const badgeRef = useRef(null);
+  const isInView = useInView(badgeRef, { once: false, amount: 0.5 });
+
+  if (isInView && !isBadgeVisible) {
+    setIsBadgeVisible(true);
+  } else if (!isInView && isBadgeVisible) {
+    setIsBadgeVisible(false);
+  }
 
   return (
     <>
@@ -121,7 +120,9 @@ const HomeSection: React.FC = () => {
             ref={badgeRef}
             className="flex items-center justify-center w-1/2"
           >
-            {isBadgeVisible && <Badge debug={false} />}
+            <Suspense fallback="Loading Card">
+              {isBadgeVisible && <Badge debug={false} />}
+            </Suspense>
           </motion.div>
         </div>
       </motion.section>

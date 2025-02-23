@@ -15,29 +15,36 @@ const ExperienceSection = () => {
       variants={staggerContainer(0.5)}
       className="container py-16"
     >
-      <motion.div className="flex justify-between">
+      <motion.div>
         <motion.h1
-          variants={CreateAnimation("left", 2.0)}
+          variants={CreateAnimation("left", 1.0)}
           className="text-4xl font-bold text-white mb-8"
         >
           {EXPERIENCE.TITLE}
         </motion.h1>
-        <motion.h1
-          variants={CreateAnimation("right", 2.0)}
-          className="text-4xl font-bold text-white mb-8"
-        >
-          {EXPERIENCE.GITHUB}
-        </motion.h1>
       </motion.div>
-      <motion.div className="flex justify-between gap-1">
-        <motion.div variants={CreateAnimation("left", 2.0)}>
+      <motion.div className="flex justify-between gap-2 items-stretch mb-8">
+        <motion.div
+          variants={CreateAnimation("up", 1.0)}
+          className="flex-1 flex"
+        >
           <CustomCard
             title="Internship as a Teknikal Programmer at PT. Jidoka System Indonesia"
             body="March, 2023 - June, 2023 • 3 months"
             footer="Internship as a Teknikal Programmer at PT. Jidoka System Indonesia"
           />
         </motion.div>
-        <motion.div variants={CreateAnimation("right", 2.0)}>
+      </motion.div>
+      <motion.div>
+        <motion.h1
+          variants={CreateAnimation("left", 1.0)}
+          className="text-4xl font-bold text-white mb-8"
+        >
+          {EXPERIENCE.GITHUB}
+        </motion.h1>
+        <motion.div
+          variants={CreateAnimation("up", 1.0)}
+        >
           <GitHubCalendar />
         </motion.div>
       </motion.div>

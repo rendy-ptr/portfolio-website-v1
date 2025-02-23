@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { motion, AnimatePresence, Transition } from "framer-motion";
+import { motion, AnimatePresence, Transition, Target } from "framer-motion";
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(" ");
@@ -25,11 +25,11 @@ export interface RotatingTextProps
     "children" | "transition" | "initial" | "animate" | "exit"
   > {
   texts: string[];
-  prefix?: string; // Prop baru untuk teks konstan
+  prefix?: string; 
   transition?: Transition;
-  initial?: any;
-  animate?: any;
-  exit?: any;
+  initial?: Target;
+  animate?: Target;
+  exit?: Target;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
   rotationInterval?: number;
