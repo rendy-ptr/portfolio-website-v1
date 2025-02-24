@@ -20,14 +20,31 @@ export const CUSTOM_TYPING = {
 };
 
 export const NAVBAR = {
-  TITLE: "Rendy Code Enjoyer",
-  TEXT: [
-    "Home",
-    "About Me",
-    "Tech Stack",
-    "Contact Me",
-  ]
-}
+  TITLE: "{} Rendy Code Enjoyer",
+  TEXT_NAVIGATION: ["Home", "About Me", "Experience", "Skills", "Projects", "Contact Me"],
+  TEXT_LINKS: [
+    {
+      name: "Github",
+      url: "https://github.com/rendy-ptr",
+    },
+    {
+      name: "Linkedin",
+      url: "https://www.linkedin.com/in/rendy-putra-930460334/",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/rndyptrr_",
+    },
+    {
+      name: "Tiktok",
+      url: "https://www.tiktok.com/@rndyptr._",
+    },
+    {
+      name: "Email",
+      url: "mailto:rendyp348@gmail.com",
+    },
+  ],
+};
 
 export const ABOUT_ME = {
   TITLE: "About Me",

@@ -9,6 +9,7 @@ import GitHubCalendar from "../components/GithubCalendar/GithubCalendar";
 const ExperienceSection = () => {
   return (
     <motion.section
+      id="experience"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}

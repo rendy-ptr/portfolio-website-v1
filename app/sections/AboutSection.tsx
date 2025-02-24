@@ -10,6 +10,7 @@ import Globe from "../components/Globes/globe";
 const AboutSection: React.FC = () => {
   return (
     <motion.section
+      id="about-me"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}

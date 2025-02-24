@@ -26,6 +26,7 @@ const HomeSection: React.FC = () => {
   return (
     <>
       <motion.section
+        id="home"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.5 }}
