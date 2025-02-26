@@ -95,7 +95,7 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
       style={{ cursor: "inherit" }}
     >
       <edgesGeometry args={[new SphereGeometry(1, 10, 10)]} />
-      <lineBasicMaterial color="#94a2b7" linewidth={1.5} />
+      <lineBasicMaterial color="#FFFFFF" linewidth={1} />
     </lineSegments>
   );
 }
@@ -108,13 +108,14 @@ export default function Globe() {
       <div
         className="flex-shrink-0"
         style={{
-          backgroundColor: "#262626",
+          backgroundColor: "#121212",
           borderRadius: "50%",
           width: "60px",
           height: "60px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          boxShadow: "0 0 15px #A8A8A8",
         }}
       >
         <div className="w-[65px] h-[65px]">

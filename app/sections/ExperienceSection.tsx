@@ -43,9 +43,7 @@ const ExperienceSection = () => {
         >
           {EXPERIENCE.GITHUB}
         </motion.h1>
-        <motion.div
-          variants={CreateAnimation("up", 1.0)}
-        >
+        <motion.div variants={CreateAnimation("up", 1.0)}>
           <GitHubCalendar />
         </motion.div>
       </motion.div>

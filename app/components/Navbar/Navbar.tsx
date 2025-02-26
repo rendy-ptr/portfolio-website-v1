@@ -17,12 +17,15 @@ const Navbar: FC = () => {
         </h1>
 
         {/* Hamburger di pojok kanan atas */}
-        <div className="absolute top-5 right-5 z-50 bg-white rounded-full shadow-md">
+        <div
+          className="absolute top-5 right-5 z-50 bg-[#E4E4E7] rounded-full shadow-md
+          hover:outline hover:outline-[#4f5052] hover:outline-[7px]"
+        >
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}
             color="black"
-            size={20}
+            size={22}
           />
         </div>
       </div>

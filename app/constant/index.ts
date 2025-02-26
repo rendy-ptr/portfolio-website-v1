@@ -1,6 +1,6 @@
 export const TITLE = {
   NAME: "Rendy Putra Pratama",
-  DESCRIPTION: "Welcome to My Personal Website",
+  DESCRIPTION: "Welcome to My Portfolio Website",
   TEXT: "Hello, My Name",
 };
 
@@ -21,7 +21,7 @@ export const CUSTOM_TYPING = {
 
 export const NAVBAR = {
   TITLE: "{} Rendy Code Enjoyer",
-  TEXT_NAVIGATION: ["Home", "About Me", "Experience", "Skills", "Projects", "Contact Me"],
+  TEXT_NAVIGATION: ["Home", "About Me", "Experience", "Skills", "Certificate", "Projects", "Contact Me"],
   TEXT_LINKS: [
     {
       name: "Github",
@@ -54,4 +54,8 @@ export const ABOUT_ME = {
 export const EXPERIENCE = {
   TITLE: "Experience",
   GITHUB: "Github"
+}
+
+export const SKILLS = {
+  TITLE: "Skills"
 }
