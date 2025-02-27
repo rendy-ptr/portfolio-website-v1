@@ -90,7 +90,7 @@ const HomeSection: React.FC = () => {
                 <InteractiveHoverButton
                   variant="default"
                   icon={<Download size={20} />}
-                  onClick={() => console.log("Download")}
+                  onClick={() => console.log("Download Bisa!!!")}
                 >
                   {BUTTONS.DOWNLOAD_CV}
                 </InteractiveHoverButton>
@@ -103,7 +103,7 @@ const HomeSection: React.FC = () => {
                 <InteractiveHoverButton
                   variant="inverted"
                   icon={<ChevronRight size={20} />}
-                  onClick={() => console.log("Inverted Button")}
+                  onClick={() => console.log("Contact Me Bisa!!!!")}
                 >
                   {BUTTONS.CONTACT_ME}
                 </InteractiveHoverButton>

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.0",
+    "@radix-ui/react-slot": "^1.1.2",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.121.5",
     "@react-three/fiber": "^8.15.0",
@@ -32,6 +33,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-github-calendar": "^4.5.5",
+    "react-icons": "^5.5.0",
     "react-lottie-player": "^2.1.0",
     "react-router-dom": "^7.1.5",
     "react-use": "^17.6.0",

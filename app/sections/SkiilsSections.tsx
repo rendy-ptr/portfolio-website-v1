@@ -8,7 +8,7 @@ import { Beam } from "app/components/AnimatedBeam/AnimatedBeam";
 
 const SkillSection: FC = () => {
   return (
-    <motion.div
+    <motion.section
       id="skills"
       initial="hidden"
       whileInView="visible"
@@ -25,7 +25,7 @@ const SkillSection: FC = () => {
       <motion.div variants={CreateAnimation("up", 1.0)}>
         <Beam />
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 };
 

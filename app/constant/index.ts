@@ -1,3 +1,8 @@
+import { FaJsSquare, FaReact, FaNodeJs } from "react-icons/fa";
+import { SiTypescript, SiMongodb } from "react-icons/si";
+import type { ProjectCardProps } from "../components/Cards/CardBeam";
+
+
 export const TITLE = {
   NAME: "Rendy Putra Pratama",
   DESCRIPTION: "Welcome to My Portfolio Website",
@@ -14,14 +19,22 @@ export const CUSTOM_TYPING = {
     "Frontend Developer",
     "Backend Developer",
     "ML Engineer",
-    "AI Enthusiast"
+    "AI Enthusiast",
   ],
   TEXT: "I am a ",
 };
 
 export const NAVBAR = {
   TITLE: "{} Rendy Code Enjoyer",
-  TEXT_NAVIGATION: ["Home", "About Me", "Experience", "Skills", "Certificate", "Projects", "Contact Me"],
+  TEXT_NAVIGATION: [
+    "Home",
+    "About Me",
+    "Experience",
+    "Skills",
+    "Projects",
+    "Certificate",
+    "Contact Me",
+  ],
   TEXT_LINKS: [
     {
       name: "Github",
@@ -49,13 +62,50 @@ export const NAVBAR = {
 export const ABOUT_ME = {
   TITLE: "About Me",
   DESC: "Hi! My name is Rendy Putra Pratama, a final-year Computer Engineering student from Karawang,West Java, Indonesia. I have a strong passion for web development and machine learning, including related fields like AI and Data Science, specializing in React.js and Python. Beyond coding, I see myself as a creative thinker, problem solver, and constant learner who loves exploring new technologies. I enjoy tackling challenges, building innovative solutions, and continuously improving my skills. Always open to new opportunities and collaborations, I’d love to connect and work on exciting projects together!",
-}
+};
 
 export const EXPERIENCE = {
   TITLE: "Experience",
-  GITHUB: "Github"
-}
+  GITHUB: "Github",
+};
 
 export const SKILLS = {
-  TITLE: "Skills"
-}
+  TITLE: "Skills",
+};
+
+export const PROJECTS = {
+  TITLE: "Projects",
+};
+
+export const projects: ProjectCardProps[] = [
+  {
+    image: "/placeholder.svg?height=192&width=350",
+    title: "Awesome Web App",
+    description:
+      "A cutting-edge web application built with modern technologies.",
+    techStack: [
+      { icon: FaJsSquare, name: "JavaScript" },
+      { icon: FaReact, name: "React" },
+      { icon: SiTypescript, name: "TypeScript" },
+    ],
+  },
+  {
+    image: "/placeholder.svg?height=192&width=350",
+    title: "Mobile App",
+    description: "An innovative mobile app with cross-platform capabilities.",
+    techStack: [
+      { icon: FaReact, name: "React Native" },
+      { icon: SiTypescript, name: "TypeScript" },
+    ],
+  },
+  {
+    image: "/placeholder.svg?height=192&width=350",
+    title: "Backend API",
+    description:
+      "A robust and scalable backend API for enterprise applications.",
+    techStack: [
+      { icon: FaNodeJs, name: "Node.js" },
+      { icon: SiMongodb, name: "MongoDB" },
+    ],
+  },
+];

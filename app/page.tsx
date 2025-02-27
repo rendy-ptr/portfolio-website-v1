@@ -6,6 +6,7 @@ import HomeSection from "./sections/HomeSection";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import SkillSection from "./sections/SkiilsSections";
+import ProjectsSection from "./sections/ProjectsSection";
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <AboutSection />
         <ExperienceSection />
         <SkillSection />
+        <ProjectsSection />
         <div className="h-[200vh]" />
       </div>
     </div>

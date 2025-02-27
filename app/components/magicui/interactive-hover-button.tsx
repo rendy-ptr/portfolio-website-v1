@@ -3,7 +3,12 @@ import { cn } from "../../lib/utils";
 
 interface InteractiveHoverButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "inverted" | "primary" | "secondary"; // Menambahkan lebih banyak varian
+  variant?:
+    | "default"
+    | "inverted"
+    | "primary"
+    | "secondary"
+    | "loadmore"; // Menambahkan lebih banyak varian
   icon?: React.ReactNode; // Ikon yang bisa dikustomisasi
 }
 
@@ -52,6 +57,15 @@ export const InteractiveHoverButton = React.forwardRef<
         dot: "bg-gray-800",
         hoverDot: "bg-gray-800",
         hoverContent: "text-gray-900",
+      },
+      loadmore: {
+        bg: "bg-zinc-800",
+        text: "text-white",
+        hoverBg: "hover:bg-zinc-700",
+        hoverText: "hover:text-white",
+        dot: "bg-white",
+        hoverDot: "bg-gray-400",
+        hoverContent: "text-zinc-700",
       },
     };
 
