@@ -19,15 +19,12 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
-extend({ MeshLineGeometry: MeshLineGeometry, MeshLineMaterial: MeshLineMaterial  });
+import { CustomMeshLineMaterialProps, segmentProps } from "../../../types/registry/registryType"
 
-const segmentProps = {
-  type: "dynamic",
-  canSleep: true,
-  colliders: false,
-  angularDamping: 2,
-  linearDamping: 2,
-} as const;
+extend({
+  MeshLineGeometry: MeshLineGeometry,
+  MeshLineMaterial: MeshLineMaterial,
+});
 
 function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
   const band =
@@ -44,7 +41,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
   const [dragged, drag] = useState<THREE.Vector3 | false>(false);
   const [hovered, hover] = useState(false);
 
-  const { nodes, materials } = useGLTF("/lanyard/card.glb"); 
+  const { nodes, materials } = useGLTF("/lanyard/card.glb");
   const texture = useTexture("/lanyard/lanyard-2.png");
 
   const [curve] = useState(
@@ -186,22 +183,21 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
       <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial
-        {...({
-          color: "white",
-          depthTest: false,
-          useMap: true,
-          map: texture,
-          repeat: [-4, 1],
-          lineWidth: 0.3,
-        } as any)}
+          {...({
+            color: "white",
+            depthTest: false,
+            useMap: true,
+            map: texture,
+            repeat: [-4, 1],
+            lineWidth: 0.3,
+          } as CustomMeshLineMaterialProps)}
         />
       </mesh>
     </>
   );
 }
 
-export default function Badge({ debug = false }) {
-  
+export default function LanyardCard({ debug = false }) {
   return (
     <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center bg-transparent">
       <Canvas
@@ -254,4 +250,3 @@ export default function Badge({ debug = false }) {
     </div>
   );
 }
-

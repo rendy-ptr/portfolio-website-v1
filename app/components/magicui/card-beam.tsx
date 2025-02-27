@@ -3,20 +3,8 @@
 import type React from "react";
 
 import { cn } from "../../lib/utils";
-import { motion, type MotionStyle, type Transition } from "framer-motion";
-
-interface BorderBeamProps {
-  size?: number;
-  duration?: number;
-  delay?: number;
-  colorFrom?: string;
-  colorTo?: string;
-  transition?: Transition;
-  className?: string;
-  style?: React.CSSProperties;
-  reverse?: boolean;
-  initialOffset?: number;
-}
+import { motion, type MotionStyle } from "framer-motion";
+import { BorderBeamProps } from "../../types/registry/registryType";
 
 export const BorderBeam = ({
   className,
@@ -30,6 +18,10 @@ export const BorderBeam = ({
   reverse = false,
   initialOffset = 0,
 }: BorderBeamProps) => {
+  const offsetDistance = reverse
+    ? [initialOffset + "%", initialOffset - 100 + "%"]
+    : [initialOffset - 100 + "%", initialOffset + "%"];
+
   return (
     <div className="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
       <motion.div
@@ -47,12 +39,8 @@ export const BorderBeam = ({
             ...style,
           } as MotionStyle
         }
-        initial={{ offsetDistance: `${initialOffset}%` }}
-        animate={{
-          offsetDistance: reverse
-            ? [`${100 - initialOffset}%`, `${-initialOffset}%`]
-            : [`${initialOffset}%`, `${100 + initialOffset}%`],
-        }}
+        initial={{ offsetDistance: offsetDistance[0] }}
+        animate={{ offsetDistance: offsetDistance[1] }}
         transition={{
           repeat: Number.POSITIVE_INFINITY,
           ease: "linear",

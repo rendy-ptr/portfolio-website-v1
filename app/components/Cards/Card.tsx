@@ -1,8 +1,4 @@
-type CustomCardProps = {
-  title: string;
-  body: string;
-  footer: string;
-};
+import { CustomCardProps } from "../../types/custom/appType"
 
 const CustomCard = ({ title, body, footer }: CustomCardProps) => {
   return (

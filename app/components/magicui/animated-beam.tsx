@@ -1,29 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
-import { RefObject, useEffect, useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 import { cn } from "../../lib/utils";
 
-export interface AnimatedBeamProps {
-  className?: string;
-  containerRef: RefObject<HTMLElement | null>; // Container ref
-  fromRef: RefObject<HTMLElement | null>;
-  toRef: RefObject<HTMLElement | null>;
-  curvature?: number;
-  reverse?: boolean;
-  pathColor?: string;
-  pathWidth?: number;
-  pathOpacity?: number;
-  gradientStartColor?: string;
-  gradientStopColor?: string;
-  delay?: number;
-  duration?: number;
-  startXOffset?: number;
-  startYOffset?: number;
-  endXOffset?: number;
-  endYOffset?: number;
-}
+import { AnimatedBeamProps } from "../../types/registry/registryType"
+
+
 
 export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   className,
@@ -94,9 +78,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     // Initialize ResizeObserver
     const resizeObserver = new ResizeObserver((entries) => {
       // For all entries, recalculate the path
-      for (let entry of entries) {
-        updatePath();
-      }
+      entries.forEach(() => updatePath());
     });
 
     // Observe the container element

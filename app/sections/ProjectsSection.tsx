@@ -3,10 +3,10 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, CreateAnimation } from "../animations/animation";
-import { PROJECTS, projects } from "../constant/index";
-import { ProjectCard } from "../components/Cards/CardBeam";
+import { PROJECTS } from "../constant/index";
+import { CardBeam } from "../components/Cards/CardBeam";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
-import { ArrowUpRight } from "lucide-react";
+import { lucideIcons } from "../icon/lucide-icons";
 
 const ProjectsSection: FC = () => {
   return (
@@ -28,16 +28,16 @@ const ProjectsSection: FC = () => {
         variants={CreateAnimation("up", 1.0)}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+        {PROJECTS.LIST.map((project, index) => (
+          <CardBeam key={index} {...project} />
         ))}
       </motion.div>
       <motion.h1
         variants={CreateAnimation("up", 1.0)}
         className="text-4xl font-bold text-white text-center mt-8"
       >
-        See Other Project
-      </motion.h1>{" "}
+        {PROJECTS.OTHER}
+      </motion.h1>
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
@@ -47,10 +47,10 @@ const ProjectsSection: FC = () => {
       >
         <InteractiveHoverButton
           variant="loadmore"
-          icon={<ArrowUpRight size={20} />}
+          icon={<lucideIcons.ArrowUpRight size={20} />}
           onClick={() => console.log("Load More Bisa!!")}
         >
-          Load More
+          {PROJECTS.BUTTON}
         </InteractiveHoverButton>
       </motion.div>
     </motion.section>

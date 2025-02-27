@@ -31,7 +31,6 @@ const AboutSection: React.FC = () => {
           <Globe />
         </motion.div>
       </div>
-
       <motion.div variants={CreateAnimation("up", 1.0)} className="mt-4 mb-8">
         <TextReveal />
       </motion.div>

@@ -1,16 +1,7 @@
 import React from "react";
 import { cn } from "../../lib/utils";
-
-interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?:
-    | "default"
-    | "inverted"
-    | "primary"
-    | "secondary"
-    | "loadmore"; // Menambahkan lebih banyak varian
-  icon?: React.ReactNode; // Ikon yang bisa dikustomisasi
-}
+import { InteractiveHoverButtonProps } from "../../types/registry/registryType";
+import { getButtonVariantStyles } from "app/utils/buttonVariantStyleUtils";
 
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
@@ -20,56 +11,7 @@ export const InteractiveHoverButton = React.forwardRef<
     { children, className, variant = "default", icon, onClick, ...props },
     ref
   ) => {
-    // Definisikan warna berdasarkan variant
-    const variantStyles = {
-      default: {
-        bg: "bg-white",
-        text: "text-black",
-        hoverBg: "hover:bg-black",
-        hoverText: "hover:text-white",
-        dot: "bg-black",
-        hoverDot: "bg-black",
-        hoverContent: "text-white",
-      },
-      inverted: {
-        bg: "bg-black",
-        text: "text-white",
-        hoverBg: "hover:bg-white",
-        hoverText: "hover:text-black",
-        dot: "bg-white",
-        hoverDot: "bg-white",
-        hoverContent: "text-black",
-      },
-      primary: {
-        bg: "bg-blue-500",
-        text: "text-white",
-        hoverBg: "hover:bg-blue-600",
-        hoverText: "hover:text-white",
-        dot: "bg-white",
-        hoverDot: "bg-white",
-        hoverContent: "text-white",
-      },
-      secondary: {
-        bg: "bg-gray-200",
-        text: "text-gray-800",
-        hoverBg: "hover:bg-gray-300",
-        hoverText: "hover:text-gray-900",
-        dot: "bg-gray-800",
-        hoverDot: "bg-gray-800",
-        hoverContent: "text-gray-900",
-      },
-      loadmore: {
-        bg: "bg-zinc-800",
-        text: "text-white",
-        hoverBg: "hover:bg-zinc-700",
-        hoverText: "hover:text-white",
-        dot: "bg-white",
-        hoverDot: "bg-gray-400",
-        hoverContent: "text-zinc-700",
-      },
-    };
-
-    const styles = variantStyles[variant];
+    const styles = getButtonVariantStyles(variant);
 
     return (
       <button
@@ -82,7 +24,7 @@ export const InteractiveHoverButton = React.forwardRef<
           styles.hoverText,
           className
         )}
-        onClick={onClick} // Menambahkan handler onClick
+        onClick={onClick}
         {...props}
       >
         {/* Visible Content */}

@@ -1,21 +1,20 @@
 "use client";
 
-import type React from "react";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, FC } from "react";
 import { motion, useInView } from "framer-motion";
 import { TITLE, BUTTONS, CUSTOM_TYPING } from "../constant/index";
 import { CreateAnimation, staggerContainer } from "../animations/animation";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
-import { ChevronRight, Download } from "lucide-react";
+import { lucideIcons } from "../icon/lucide-icons";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import Badge from "../blocks/Components/Lanyard/Lanyard";
+import LanyardCard from './../blocks/Components/Lanyard/Lanyard';
 
-const HomeSection: React.FC = () => {
-  const badgeRef = useRef(null);
-  const isInView = useInView(badgeRef, { once: false, amount: 0.5 });
+const HomeSection: FC = () => {
+  const LanyardCardRef = useRef(null);
+  const isInView = useInView(LanyardCardRef, { once: false, amount: 0.5 });
 
-  // Gunakan useMemo agar Badge hanya dibuat sekali, tidak setiap re-render
-  const memoizedBadge = useMemo(() => <Badge debug={false} />, []);
+  // Gunakan useMemo agar LanyardCard hanya dibuat sekali, tidak setiap re-render
+  const memoizedLanyardCard = useMemo(() => <LanyardCard debug={false} />, []);
 
 
   return (
@@ -89,7 +88,7 @@ const HomeSection: React.FC = () => {
               >
                 <InteractiveHoverButton
                   variant="default"
-                  icon={<Download size={20} />}
+                  icon={<lucideIcons.Download size={20} />}
                   onClick={() => console.log("Download Bisa!!!")}
                 >
                   {BUTTONS.DOWNLOAD_CV}
@@ -102,7 +101,7 @@ const HomeSection: React.FC = () => {
               >
                 <InteractiveHoverButton
                   variant="inverted"
-                  icon={<ChevronRight size={20} />}
+                  icon={<lucideIcons.ChevronRight size={20} />}
                   onClick={() => console.log("Contact Me Bisa!!!!")}
                 >
                   {BUTTONS.CONTACT_ME}
@@ -112,8 +111,11 @@ const HomeSection: React.FC = () => {
           </motion.div>
 
           {/* Kolom kanan: Card3d */}
-          <motion.div ref={badgeRef} className="flex items-center justify-center w-1/2">
-            {isInView && memoizedBadge}
+          <motion.div
+            ref={LanyardCardRef}
+            className="flex items-center justify-center w-1/2"
+          >
+            {isInView && memoizedLanyardCard}
           </motion.div>
         </div>
       </motion.section>

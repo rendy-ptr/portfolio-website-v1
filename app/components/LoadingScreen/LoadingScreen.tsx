@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { LoadingScreenProps } from "../../types/registry/registryType"
 
-interface LoadingScreenProps {
-  onComplete: () => void;
-}
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);

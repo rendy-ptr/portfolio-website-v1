@@ -1,7 +1,6 @@
-import React from "react";
-import type { IconType } from "react-icons";
+import React, { useMemo } from "react";
 import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
-import { Github } from "lucide-react";
+import { lucideIcons } from "../../icon/lucide-icons";
 import {
   Card,
   CardContent,
@@ -12,25 +11,18 @@ import {
 } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
 import { BorderBeam } from "../magicui/card-beam";
+import { PROJECTS } from "../../constant/index";
 
-export interface TechStack {
-  icon: IconType;
-  name: string;
-}
+import { ProjectCardProps } from "../../types/registry/registryType";
 
-export interface ProjectCardProps {
-  image: string;
-  title: string;
-  description: string;
-  techStack: TechStack[];
-}
-
-export const ProjectCard: React.FC<ProjectCardProps> = ({
+export const CardBeam: React.FC<ProjectCardProps> = ({
   image,
   title,
   description,
   techStack,
 }) => {
+  const randomDuration = useMemo(() => Math.random() * 4 + 6, []);
+  const initialOffset = useMemo(() => Math.floor(Math.random() * 101), []);
   return (
     <Card className="relative w-[330px] rounded-xl overflow-hidden bg-zinc-900 border-transparent">
       <CardHeader>
@@ -52,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               variant="secondary"
               className="flex items-center gap-1 bg-zinc-800 text-zinc-300"
             >
-              {React.createElement(tech.icon, { className: "w-4 h-4" })}
+              <tech.icon className="w-4 h-4" />
               <span>{tech.name}</span>
             </Badge>
           ))}
@@ -61,13 +53,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <CardFooter className="flex justify-between">
         <InteractiveHoverButton
           variant="loadmore"
-          icon={<Github size={20} />}
+          icon={<lucideIcons.Github size={20} />}
           onClick={() => console.log("Load More Bisa!!")}
         >
-          Github
+          {PROJECTS.GITHUB}
         </InteractiveHoverButton>
       </CardFooter>
-      <BorderBeam duration={8} size={50} />
+      <BorderBeam duration={randomDuration} size={50} initialOffset={initialOffset} />
     </Card>
   );
 };

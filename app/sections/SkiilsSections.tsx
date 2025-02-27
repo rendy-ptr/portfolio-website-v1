@@ -4,7 +4,7 @@ import { FC } from "react";
 import { staggerContainer, CreateAnimation } from "../animations/animation";
 import { SKILLS } from "../constant/index";
 import { motion } from "framer-motion";
-import { Beam } from "app/components/AnimatedBeam/AnimatedBeam";
+import { SkillBeam } from "app/components/SkillsBeam/SkillBeam";
 
 const SkillSection: FC = () => {
   return (
@@ -23,7 +23,7 @@ const SkillSection: FC = () => {
         {SKILLS.TITLE}
       </motion.h1>
       <motion.div variants={CreateAnimation("up", 1.0)}>
-        <Beam />
+        <SkillBeam />
       </motion.div>
     </motion.section>
   );

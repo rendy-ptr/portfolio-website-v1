@@ -1,6 +1,4 @@
-import { FaJsSquare, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTypescript, SiMongodb } from "react-icons/si";
-import type { ProjectCardProps } from "../components/Cards/CardBeam";
+import { reactIcons } from "../icon/react-icons"
 
 
 export const TITLE = {
@@ -71,41 +69,44 @@ export const EXPERIENCE = {
 
 export const SKILLS = {
   TITLE: "Skills",
+  TITLE_ANIMATED_BEAM: "Skills"
 };
 
 export const PROJECTS = {
   TITLE: "Projects",
+  OTHER: "See Other Project",
+  BUTTON: "Load More",
+  GITHUB: "GITHUB",
+  LIST: [
+    {
+      image: "/placeholder.svg?height=192&width=350",
+      title: "Awesome Web App",
+      description:
+        "A cutting-edge web application built with modern technologies.",
+      techStack: [
+        { icon: reactIcons.Javascript, name: "JavaScript" },
+        { icon: reactIcons.React, name: "React" },
+        { icon: reactIcons.Typescript, name: "TypeScript" },
+      ],
+    },
+    {
+      image: "/placeholder.svg?height=192&width=350",
+      title: "Mobile App",
+      description: "An innovative mobile app with cross-platform capabilities.",
+      techStack: [
+        { icon: reactIcons.React, name: "React Native" },
+        { icon: reactIcons.Typescript, name: "TypeScript" },
+      ],
+    },
+    {
+      image: "/placeholder.svg?height=192&width=350",
+      title: "Backend API",
+      description:
+        "A robust and scalable backend API for enterprise applications.",
+      techStack: [
+        { icon: reactIcons.NodeJs, name: "Node.js" },
+        { icon: reactIcons.Mongodb, name: "MongoDB" },
+      ],
+    },
+  ],
 };
-
-export const projects: ProjectCardProps[] = [
-  {
-    image: "/placeholder.svg?height=192&width=350",
-    title: "Awesome Web App",
-    description:
-      "A cutting-edge web application built with modern technologies.",
-    techStack: [
-      { icon: FaJsSquare, name: "JavaScript" },
-      { icon: FaReact, name: "React" },
-      { icon: SiTypescript, name: "TypeScript" },
-    ],
-  },
-  {
-    image: "/placeholder.svg?height=192&width=350",
-    title: "Mobile App",
-    description: "An innovative mobile app with cross-platform capabilities.",
-    techStack: [
-      { icon: FaReact, name: "React Native" },
-      { icon: SiTypescript, name: "TypeScript" },
-    ],
-  },
-  {
-    image: "/placeholder.svg?height=192&width=350",
-    title: "Backend API",
-    description:
-      "A robust and scalable backend API for enterprise applications.",
-    techStack: [
-      { icon: FaNodeJs, name: "Node.js" },
-      { icon: SiMongodb, name: "MongoDB" },
-    ],
-  },
-];

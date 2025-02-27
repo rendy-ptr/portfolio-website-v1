@@ -1,7 +1,6 @@
 "use client";
 
-import type React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, FC } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +8,7 @@ import { ABOUT_ME } from "../../constant/index";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextReveal: React.FC = () => {
+const TextReveal: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
   const controls = useAnimation();

@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
 
-interface MousePosition {
-  x: number;
-  y: number;
-}
+import React, { useEffect, useRef, useState } from "react";
+import {
+  type MousePosition,
+  ParticlesProps,
+  Circle,
+} from "../../types/registry/registryType";
 
 function MousePosition(): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
@@ -26,17 +27,6 @@ function MousePosition(): MousePosition {
   return mousePosition;
 }
 
-interface ParticlesProps {
-  className?: string;
-  quantity?: number;
-  staticity?: number;
-  ease?: number;
-  size?: number;
-  refresh?: boolean;
-  color?: string;
-  vx?: number;
-  vy?: number;
-}
 function hexToRgb(hex: string): number[] {
   hex = hex.replace("#", "");
 
@@ -112,19 +102,6 @@ const Particles: React.FC<ParticlesProps> = ({
         mouse.current.y = y;
       }
     }
-  };
-
-  type Circle = {
-    x: number;
-    y: number;
-    translateX: number;
-    translateY: number;
-    size: number;
-    alpha: number;
-    targetAlpha: number;
-    dx: number;
-    dy: number;
-    magnetism: number;
   };
 
   const resizeCanvas = () => {

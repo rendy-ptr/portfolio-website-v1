@@ -1,5 +1,5 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState, useEffect } from "react";
+import { Canvas, useFrame, ThreeEvent } from "@react-three/fiber";
+import { useRef, useState } from "react";
 import { LineSegments, SphereGeometry, MathUtils } from "three";
 
 function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
@@ -9,7 +9,7 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [pauseBeforeReturn, setPauseBeforeReturn] = useState(false);
   const returnSpeed = 0.1;
-  const pauseDuration = 2000; 
+  const pauseDuration = 2000;
 
   useFrame((_, delta) => {
     if (!meshRef.current) return;
@@ -52,14 +52,17 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
     }
   });
 
-  const handlePointerDown = (e: React.PointerEvent) => {
+  const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     isDragging.current = true;
     setCursor("grabbing");
     prevMousePos.current = { x: e.clientX, y: e.clientY };
-    e.currentTarget.setPointerCapture(e.pointerId);
+
+    if (e.currentTarget) {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    }
   };
 
-  const handlePointerMove = (e: React.PointerEvent) => {
+  const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
     if (!isDragging.current || !meshRef.current) return;
 
     const deltaX = e.clientX - prevMousePos.current.x;
@@ -71,20 +74,13 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
     prevMousePos.current = { x: e.clientX, y: e.clientY };
   };
 
-  // 🔥 Gunakan useEffect untuk menangani pointerup global
-  useEffect(() => {
-    const handleGlobalPointerUp = () => {
-      if (isDragging.current) {
-        isDragging.current = false;
-        setCursor("grab");
-        setPauseBeforeReturn(true);
-      }
-    };
-
-    document.addEventListener("pointerup", handleGlobalPointerUp);
-    return () =>
-      document.removeEventListener("pointerup", handleGlobalPointerUp);
-  }, []);
+  const handlePointerUp = () => {
+    if (isDragging.current) {
+      isDragging.current = false;
+      setCursor("grab");
+      setPauseBeforeReturn(true);
+    }
+  };
 
   return (
     <lineSegments
@@ -92,7 +88,7 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
       scale={0.9}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
-      style={{ cursor: "inherit" }}
+      onPointerUp={handlePointerUp}
     >
       <edgesGeometry args={[new SphereGeometry(1, 10, 10)]} />
       <lineBasicMaterial color="#FFFFFF" linewidth={1} />
