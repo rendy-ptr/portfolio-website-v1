@@ -108,5 +108,15 @@ export const PROJECTS = {
         { icon: reactIcons.Mongodb, name: "MongoDB" },
       ],
     },
+    {
+      image: "/placeholder.svg?height=192&width=350",
+      title: "Imsakiyah Web App",
+      description:
+        "A robust and scalable backend API for enterprise applications.",
+      techStack: [
+        { icon: reactIcons.NodeJs, name: "Node.js" },
+        { icon: reactIcons.Mongodb, name: "MongoDB" },
+      ],
+    },
   ],
 };

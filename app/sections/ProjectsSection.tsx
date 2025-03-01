@@ -7,8 +7,11 @@ import { PROJECTS } from "../constant/index";
 import { CardBeam } from "../components/Cards/CardBeam";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { lucideIcons } from "../icon/lucide-icons";
+import { usePathname } from "next/navigation";
 
 const ProjectsSection: FC = () => {
+  const pathname = usePathname();
+  const isProjectsPage = pathname === "/projects";
   return (
     <motion.section
       id="projects"
@@ -28,9 +31,11 @@ const ProjectsSection: FC = () => {
         variants={CreateAnimation("up", 1.0)}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {PROJECTS.LIST.map((project, index) => (
-          <CardBeam key={index} {...project} />
-        ))}
+        {(isProjectsPage ? PROJECTS.LIST : PROJECTS.LIST.slice(0, 3)).map(
+          (project, index) => (
+            <CardBeam key={index} {...project} />
+          )
+        )}
       </motion.div>
       <motion.h1
         variants={CreateAnimation("up", 1.0)}
