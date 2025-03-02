@@ -1,5 +1,5 @@
 // utils/buttonVariants.ts
-import { InteractiveHoverButtonProps } from "../types/registry/registryType";
+import type { InteractiveHoverButtonProps } from "../types/registry/registryType";
 
 export const getButtonVariantStyles = (
   variant: NonNullable<InteractiveHoverButtonProps["variant"]>

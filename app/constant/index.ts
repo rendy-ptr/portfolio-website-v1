@@ -1,5 +1,4 @@
-import { reactIcons } from "../icon/react-icons"
-
+import { reactIcons } from "../icon/react-icons";
 
 export const TITLE = {
   NAME: "Rendy Putra Pratama",
@@ -13,12 +12,7 @@ export const BUTTONS: { DOWNLOAD_CV: string; CONTACT_ME: string } = {
 };
 
 export const CUSTOM_TYPING = {
-  ROLES: [
-    "Frontend Developer",
-    "Backend Developer",
-    "ML Engineer",
-    "AI Enthusiast",
-  ],
+  ROLES: ["Frontend Developer", "Backend Developer", "ML Engineer", "AI Enthusiast"],
   TEXT: "I am a ",
 };
 
@@ -69,7 +63,7 @@ export const EXPERIENCE = {
 
 export const SKILLS = {
   TITLE: "Skills",
-  TITLE_ANIMATED_BEAM: "Skills"
+  TITLE_ANIMATED_BEAM: "Skills",
 };
 
 export const PROJECTS = {
@@ -79,10 +73,9 @@ export const PROJECTS = {
   GITHUB: "GITHUB",
   LIST: [
     {
-      image: "/placeholder.svg?height=192&width=350",
+      image: "/placeholder.svg",
       title: "Awesome Web App",
-      description:
-        "A cutting-edge web application built with modern technologies.",
+      description: "A cutting-edge web application built with modern technologies.",
       techStack: [
         { icon: reactIcons.Javascript, name: "JavaScript" },
         { icon: reactIcons.React, name: "React" },
@@ -90,7 +83,7 @@ export const PROJECTS = {
       ],
     },
     {
-      image: "/placeholder.svg?height=192&width=350",
+      image: "/placeholder.svg",
       title: "Mobile App",
       description: "An innovative mobile app with cross-platform capabilities.",
       techStack: [
@@ -99,20 +92,18 @@ export const PROJECTS = {
       ],
     },
     {
-      image: "/placeholder.svg?height=192&width=350",
+      image: "/placeholder.svg",
       title: "Backend API",
-      description:
-        "A robust and scalable backend API for enterprise applications.",
+      description: "A robust and scalable backend API for enterprise applications.",
       techStack: [
         { icon: reactIcons.NodeJs, name: "Node.js" },
         { icon: reactIcons.Mongodb, name: "MongoDB" },
       ],
     },
     {
-      image: "/placeholder.svg?height=192&width=350",
+      image: "/placeholder.svg",
       title: "Imsakiyah Web App",
-      description:
-        "A robust and scalable backend API for enterprise applications.",
+      description: "A robust and scalable backend API for enterprise applications.",
       techStack: [
         { icon: reactIcons.NodeJs, name: "Node.js" },
         { icon: reactIcons.Mongodb, name: "MongoDB" },

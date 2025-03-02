@@ -2,12 +2,7 @@
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  Lightformer,
-  useGLTF,
-  useTexture,
-} from "@react-three/drei";
+import { Environment, Lightformer, useGLTF, useTexture } from "@react-three/drei";
 import {
   Physics,
   type RapierRigidBody,
@@ -19,7 +14,8 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 
-import { CustomMeshLineMaterialProps, segmentProps } from "../../../types/registry/registryType"
+import type { CustomMeshLineMaterialProps } from "../../../types/registry/registryType";
+import { segmentProps } from "../../../types/registry/registryType";
 
 extend({
   MeshLineGeometry: MeshLineGeometry,
@@ -27,8 +23,7 @@ extend({
 });
 
 function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
-  const band =
-    useRef<THREE.Mesh<typeof MeshLineGeometry, typeof MeshLineMaterial>>(null);
+  const band = useRef<THREE.Mesh<typeof MeshLineGeometry, typeof MeshLineMaterial>>(null);
   const fixed = useRef<RapierRigidBody>(null);
   const j1 = useRef<RapierRigidBody>(null);
   const j2 = useRef<RapierRigidBody>(null);
@@ -114,10 +109,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
 
     ang.copy(card.current.angvel());
     rot.copy(card.current.rotation());
-    card.current.setAngvel(
-      { x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z },
-      false
-    );
+    card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, false);
   });
 
   curve.curveType = "chordal";
@@ -137,11 +129,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        <RigidBody
-          ref={card}
-          {...segmentProps}
-          type={dragged ? "kinematicPosition" : "dynamic"}
-        >
+        <RigidBody ref={card} {...segmentProps} type={dragged ? "kinematicPosition" : "dynamic"}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
             scale={2.25}
@@ -151,13 +139,8 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
             onPointerUp={() => drag(false)}
             onPointerDown={(evt) =>
               card.current &&
-              drag(
-                new THREE.Vector3()
-                  .copy(evt.point)
-                  .sub(vec.copy(card.current.translation()))
-              )
-            }
-          >
+              drag(new THREE.Vector3().copy(evt.point).sub(vec.copy(card.current.translation())))
+            }>
             <mesh geometry={(nodes.card as THREE.Mesh).geometry}>
               <meshPhysicalMaterial
                 map={(materials.base as THREE.MeshStandardMaterial).map}
@@ -173,10 +156,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
               material={materials.metal}
               material-roughness={0.3}
             />
-            <mesh
-              geometry={(nodes.clamp as THREE.Mesh).geometry}
-              material={materials.metal}
-            />
+            <mesh geometry={(nodes.clamp as THREE.Mesh).geometry} material={materials.metal} />
           </group>
         </RigidBody>
       </group>
@@ -205,15 +185,9 @@ export default function LanyardCard({ debug = false }) {
           alpha: true,
           antialias: true,
           preserveDrawingBuffer: true,
-        }}
-      >
+        }}>
         <ambientLight intensity={Math.PI} />
-        <Physics
-          debug={debug}
-          interpolate
-          gravity={[0, -38, 0]}
-          timeStep={1 / 60}
-        >
+        <Physics debug={debug} interpolate gravity={[0, -38, 0]} timeStep={1 / 60}>
           <Lanyard />
         </Physics>
         <Environment background={false} blur={0.75}>

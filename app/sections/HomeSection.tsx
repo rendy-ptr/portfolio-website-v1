@@ -1,13 +1,14 @@
 "use client";
 
-import { useRef, useMemo, FC } from "react";
+import type { FC } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { TITLE, BUTTONS, CUSTOM_TYPING } from "../constant/index";
 import { CreateAnimation, staggerContainer } from "../animations/animation";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { lucideIcons } from "../icon/lucide-icons";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import LanyardCard from './../blocks/Components/Lanyard/Lanyard';
+import LanyardCard from "./../blocks/Components/Lanyard/Lanyard";
 
 const HomeSection: FC = () => {
   const LanyardCardRef = useRef(null);
@@ -15,7 +16,6 @@ const HomeSection: FC = () => {
 
   // Gunakan useMemo agar LanyardCard hanya dibuat sekali, tidak setiap re-render
   const memoizedLanyardCard = useMemo(() => <LanyardCard debug={false} />, []);
-
 
   return (
     <>
@@ -25,26 +25,22 @@ const HomeSection: FC = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.5 }}
         variants={staggerContainer(0.5)}
-        className="flex items-center justify-center min-h-screen z-10 container py-16 px-8"
-      >
+        className="flex items-center justify-center min-h-screen z-10 container py-16 px-8">
         {/* Container utama dengan flex-row */}
         <div className="flex w-full max-w-7xl">
           {/* Kolom kiri: Profil, teks, dan tombol */}
           <motion.div
             variants={CreateAnimation("up", 1.2)}
-            className="flex flex-col items-start justify-center w-1/2 space-y-6 text-left"
-          >
+            className="flex flex-col items-start justify-center w-1/2 space-y-6 text-left">
             {/* Judul */}
             <motion.h1
               variants={CreateAnimation("up", 1.2)}
-              className="text-6xl font-semibold text-[#D6D6D6]"
-            >
+              className="text-6xl font-semibold text-[#D6D6D6]">
               {TITLE.TEXT}
             </motion.h1>
             <motion.h1
               variants={CreateAnimation("up", 1.2)}
-              className="text-7xl font-bold text-[#EAE8D9]"
-            >
+              className="text-7xl font-bold text-[#EAE8D9]">
               {TITLE.NAME}
             </motion.h1>
 
@@ -68,8 +64,7 @@ const HomeSection: FC = () => {
             {/* Deskripsi */}
             <motion.p
               variants={CreateAnimation("up", 1.2)}
-              className="text-2xl font-semibold text-[#A3A3A3]"
-            >
+              className="text-2xl font-semibold text-[#A3A3A3]">
               {TITLE.DESCRIPTION}
               <span className="waving-hand" role="img" aria-label="waving hand">
                 👋🏻
@@ -77,33 +72,26 @@ const HomeSection: FC = () => {
             </motion.p>
 
             {/* Tombol */}
-            <motion.div
-              variants={CreateAnimation("up", 1.2)}
-              className="flex justify-start gap-3"
-            >
+            <motion.div variants={CreateAnimation("up", 1.2)} className="flex justify-start gap-3">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
+                transition={{ duration: 0.3, ease: "easeInOut" }}>
                 <InteractiveHoverButton
                   variant="default"
                   icon={<lucideIcons.Download size={20} />}
-                  onClick={() => console.log("Download Bisa!!!")}
-                >
+                  onClick={() => alert("Download Bisa!!!")}>
                   {BUTTONS.DOWNLOAD_CV}
                 </InteractiveHoverButton>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
+                transition={{ duration: 0.3, ease: "easeInOut" }}>
                 <InteractiveHoverButton
                   variant="inverted"
                   icon={<lucideIcons.ChevronRight size={20} />}
-                  onClick={() => console.log("Contact Me Bisa!!!!")}
-                >
+                  onClick={() => alert("Contact Me Bisa!!!!")}>
                   {BUTTONS.CONTACT_ME}
                 </InteractiveHoverButton>
               </motion.div>
@@ -111,10 +99,7 @@ const HomeSection: FC = () => {
           </motion.div>
 
           {/* Kolom kanan: Card3d */}
-          <motion.div
-            ref={LanyardCardRef}
-            className="flex items-center justify-center w-1/2"
-          >
+          <motion.div ref={LanyardCardRef} className="flex items-center justify-center w-1/2">
             {isInView && memoizedLanyardCard}
           </motion.div>
         </div>

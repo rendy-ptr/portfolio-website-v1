@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LoadingScreenProps } from "../../types/registry/registryType"
-
+import type { LoadingScreenProps } from "../../types/registry/registryType";
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
@@ -43,16 +42,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         className="text-xl uppercase font-bold mb-4"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-      >
+        transition={{ duration: 0.2, ease: "easeOut" }}>
         For best experience use desktop screen
       </motion.h1>
 
       <div className="w-1/2 bg-gray-700 rounded-full h-2 overflow-hidden">
-        <motion.div
-          className="bg-blue-500 h-2 rounded-full"
-          style={{ width: `${progress}%` }}
-        />
+        <motion.div className="bg-blue-500 h-2 rounded-full" style={{ width: `${progress}%` }} />
       </div>
       <p className="mt-4 text-xl font-semibold">{Math.floor(progress)}%</p>
     </div>

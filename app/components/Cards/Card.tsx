@@ -1,4 +1,4 @@
-import { CustomCardProps } from "../../types/custom/appType"
+import type { CustomCardProps } from "../../types/custom/appType";
 
 const CustomCard = ({ title, body, footer }: CustomCardProps) => {
   return (

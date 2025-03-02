@@ -1,8 +1,4 @@
-
-export const CreateAnimation = (
-  direction: string,
-  duration: number,
-) => {
+export const CreateAnimation = (direction: string, duration: number) => {
   const x = direction === "right" ? 50 : direction === "left" ? -50 : 0;
   const y = direction === "up" ? 50 : direction === "down" ? -50 : 0;
 
@@ -19,11 +15,10 @@ export const CreateAnimation = (
       transition: {
         duration,
         ease: "easeInOut",
-      }
+      },
     },
   };
 };
-
 
 export const staggerContainer = (stagger: number) => ({
   hidden: {},

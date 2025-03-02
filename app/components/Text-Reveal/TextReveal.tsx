@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, FC } from "react";
+import type { FC } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,7 +16,7 @@ const TextReveal: FC = () => {
 
   useEffect(() => {
     if (isInView) {
-      controls.start("visible");
+      void controls.start("visible");
     }
   }, [isInView, controls]);
 
@@ -53,11 +54,7 @@ const TextReveal: FC = () => {
     return text.split("").map((char, index) => {
       if (char === " ") {
         return (
-          <span
-            key={`space-${index}`}
-            className="inline-block"
-            style={{ whiteSpace: "pre" }}
-          >
+          <span key={`space-${index}`} className="inline-block" style={{ whiteSpace: "pre" }}>
             {" "}
           </span>
         );
@@ -73,8 +70,7 @@ const TextReveal: FC = () => {
             fontFamily: "inherit",
             lineHeight: "1.8",
             fontSize: "1.5rem",
-          }}
-        >
+          }}>
           {char}
         </span>
       );
@@ -87,8 +83,7 @@ const TextReveal: FC = () => {
         initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        style={{ whiteSpace: "pre-wrap" }}
-      >
+        style={{ whiteSpace: "pre-wrap" }}>
         {createLetterSpans(ABOUT_ME.DESC)}
       </motion.div>
     </div>

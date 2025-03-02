@@ -14,13 +14,7 @@ const ParticlesDemo = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full z-1 pointer-events-none">
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={80}
-        color={color}
-        refresh
-      />
+      <Particles className="absolute inset-0" quantity={100} ease={80} color={color} refresh />
     </div>
   );
 };

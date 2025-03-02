@@ -4,7 +4,7 @@ import type React from "react";
 
 import { cn } from "../../lib/utils";
 import { motion, type MotionStyle } from "framer-motion";
-import { BorderBeamProps } from "../../types/registry/registryType";
+import type { BorderBeamProps } from "../../types/registry/registryType";
 
 export const BorderBeam = ({
   className,

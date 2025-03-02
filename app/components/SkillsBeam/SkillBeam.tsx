@@ -6,22 +6,20 @@ import { AnimatedBeam } from "../magicui/animated-beam";
 import { Icons } from "../../icon/skill-icons";
 import { SKILLS } from "../../constant/index";
 
-const Circle = forwardRef<
-  HTMLDivElement,
-  { className?: string; children?: React.ReactNode }
->(({ className, children }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "z-10 w-full flex size-12 items-center justify-center bg-transparent",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-});
+const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode }>(
+  ({ className, children }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "z-10 w-full flex size-12 items-center justify-center bg-transparent",
+          className
+        )}>
+        {children}
+      </div>
+    );
+  }
+);
 
 Circle.displayName = "Circle";
 
@@ -46,8 +44,7 @@ export function SkillBeam() {
   return (
     <div
       className="relative flex w-full mx-auto items-center justify-center overflow-hidden bg-transparent"
-      ref={containerRef}
-    >
+      ref={containerRef}>
       <div className="flex h-full w-full flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={divRefReact} className="size-16">

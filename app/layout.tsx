@@ -4,11 +4,7 @@ import { useState } from "react";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import "./index.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   return (

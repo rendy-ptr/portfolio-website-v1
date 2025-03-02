@@ -1,8 +1,7 @@
-import { Transition, Target, motion } from "framer-motion";
+import type { Transition, Target, motion } from "framer-motion";
 import type { IconType } from "react-icons";
 import type { Texture } from "three";
-import type { RefObject } from "react"
-
+import type { RefObject } from "react";
 
 // REGISTRY TYPE
 export interface CustomMeshLineMaterialProps {
@@ -28,7 +27,7 @@ export interface LoadingScreenProps {
 
 export interface AnimatedBeamProps {
   className?: string;
-  containerRef: RefObject<HTMLElement | null>; 
+  containerRef: RefObject<HTMLElement | null>;
   fromRef: RefObject<HTMLElement | null>;
   toRef: RefObject<HTMLElement | null>;
   curvature?: number;
@@ -64,20 +63,19 @@ export interface ParticlesProps {
 }
 
 export type Circle = {
-    x: number;
-    y: number;
-    translateX: number;
-    translateY: number;
-    size: number;
-    alpha: number;
-    targetAlpha: number;
-    dx: number;
-    dy: number;
-    magnetism: number;
-  };
+  x: number;
+  y: number;
+  translateX: number;
+  translateY: number;
+  size: number;
+  alpha: number;
+  targetAlpha: number;
+  dx: number;
+  dy: number;
+  magnetism: number;
+};
 
-export interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface InteractiveHoverButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "inverted" | "primary" | "secondary" | "loadmore";
   icon?: React.ReactNode;
 }
@@ -132,5 +130,4 @@ export interface ProjectCardProps {
   title: string;
   description: string;
   techStack: { icon: IconType; name: string }[];
-
 }

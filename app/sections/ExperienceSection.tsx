@@ -14,21 +14,16 @@ const ExperienceSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       variants={staggerContainer(0.5)}
-      className="container py-16"
-    >
+      className="container py-16">
       <motion.div>
         <motion.h1
           variants={CreateAnimation("left", 1.0)}
-          className="text-4xl font-bold text-white mb-8"
-        >
+          className="text-4xl font-bold text-white mb-8">
           {EXPERIENCE.TITLE}
         </motion.h1>
       </motion.div>
       <motion.div className="flex justify-between gap-2 items-stretch mb-8">
-        <motion.div
-          variants={CreateAnimation("up", 1.0)}
-          className="flex-1 flex"
-        >
+        <motion.div variants={CreateAnimation("up", 1.0)} className="flex-1 flex">
           <CustomCard
             title="Internship as a Teknikal Programmer at PT. Jidoka System Indonesia"
             body="March, 2023 - June, 2023 • 3 months"
@@ -39,8 +34,7 @@ const ExperienceSection = () => {
       <motion.div>
         <motion.h1
           variants={CreateAnimation("left", 1.0)}
-          className="text-4xl font-bold text-white mb-8"
-        >
+          className="text-4xl font-bold text-white mb-8">
           {EXPERIENCE.GITHUB}
         </motion.h1>
         <motion.div variants={CreateAnimation("up", 1.0)}>

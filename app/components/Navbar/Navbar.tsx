@@ -2,7 +2,8 @@
 
 import { NAVBAR } from "../../constant/index";
 import { Sling as Hamburger } from "hamburger-react";
-import { useState, FC } from "react";
+import type { FC } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar: FC = () => {
@@ -19,14 +20,8 @@ const Navbar: FC = () => {
         {/* Hamburger di pojok kanan atas */}
         <div
           className="absolute top-5 right-5 z-50 bg-[#E4E4E7] rounded-full shadow-md
-          hover:outline hover:outline-[#4f5052] hover:outline-[7px]"
-        >
-          <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-            color="black"
-            size={22}
-          />
+          hover:outline hover:outline-[#4f5052] hover:outline-[7px]">
+          <Hamburger toggled={isOpen} toggle={setOpen} color="black" size={22} />
         </div>
       </div>
 
@@ -38,8 +33,7 @@ const Navbar: FC = () => {
             animate={{ clipPath: "circle(150% at 100% 50%)" }}
             exit={{ clipPath: "circle(0% at 100% 50%)" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 right-0 h-screen w-[20rem] bg-[#F5F5F5] z-40 flex flex-col justify-between shadow-lg px-8 py-10"
-          >
+            className="fixed top-0 right-0 h-screen w-[20rem] bg-[#F5F5F5] z-40 flex flex-col justify-between shadow-lg px-8 py-10">
             {/* Navigation Title */}
             <div className="mt-12">
               <h2 className="text-black text-lg font-bold">Navigation</h2>
@@ -58,8 +52,7 @@ const Navbar: FC = () => {
                     if (section) {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
-                  }}
-                >
+                  }}>
                   {item}
                 </li>
               ))}
@@ -76,8 +69,7 @@ const Navbar: FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="cursor-pointer hover:opacity-75"
-                  >
+                    className="cursor-pointer hover:opacity-75">
                     {link.name}
                   </a>
                 ))}

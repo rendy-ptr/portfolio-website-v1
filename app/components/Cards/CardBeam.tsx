@@ -12,29 +12,25 @@ import {
 import { Badge } from "../../components/ui/badge";
 import { BorderBeam } from "../magicui/card-beam";
 import { PROJECTS } from "../../constant/index";
+import Image from "next/image";
 
-import { ProjectCardProps } from "../../types/registry/registryType";
+import type { ProjectCardProps } from "../../types/registry/registryType";
 
-export const CardBeam: React.FC<ProjectCardProps> = ({
-  image,
-  title,
-  description,
-  techStack,
-}) => {
+export const CardBeam: React.FC<ProjectCardProps> = ({ image, title, description, techStack }) => {
   const randomDuration = useMemo(() => Math.random() * 4 + 6, []);
   const initialOffset = useMemo(() => Math.floor(Math.random() * 101), []);
   return (
     <Card className="relative w-[330px] rounded-xl overflow-hidden bg-zinc-900 border-transparent">
       <CardHeader>
-        <img
+        <Image
           src={image || "/placeholder.svg"}
+          width={350}
+          height={192}
           alt={title}
           className="w-full h-48 object-cover rounded-t-lg"
         />
         <CardTitle className="mt-4 text-zinc-100">{title}</CardTitle>
-        <CardDescription className="text-zinc-400">
-          {description}
-        </CardDescription>
+        <CardDescription className="text-zinc-400">{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-2">
@@ -42,8 +38,7 @@ export const CardBeam: React.FC<ProjectCardProps> = ({
             <Badge
               key={index}
               variant="secondary"
-              className="flex items-center gap-1 bg-zinc-800 text-zinc-300"
-            >
+              className="flex items-center gap-1 bg-zinc-800 text-zinc-300">
               <tech.icon className="w-4 h-4" />
               <span>{tech.name}</span>
             </Badge>
@@ -54,8 +49,7 @@ export const CardBeam: React.FC<ProjectCardProps> = ({
         <InteractiveHoverButton
           variant="loadmore"
           icon={<lucideIcons.Github size={20} />}
-          onClick={() => console.log("Load More Bisa!!")}
-        >
+          onClick={() => alert("Github Bisa!!")}>
           {PROJECTS.GITHUB}
         </InteractiveHoverButton>
       </CardFooter>

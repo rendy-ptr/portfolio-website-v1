@@ -1,10 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useEffect, useRef, useState } from "react";
-import {
-  type MousePosition,
-  ParticlesProps,
-  Circle,
-} from "../../types/registry/registryType";
+import type { ParticlesProps, Circle } from "../../types/registry/registryType";
+import { type MousePosition } from "../../types/registry/registryType";
 
 function MousePosition(): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
@@ -49,7 +47,7 @@ const Particles: React.FC<ParticlesProps> = ({
   quantity = 100,
   staticity = 50,
   ease = 50,
-  size = 0.4,
+  size: particleSize = 0.4,
   refresh = false,
   color = "#ffffff",
   vx = 0,
@@ -122,7 +120,7 @@ const Particles: React.FC<ParticlesProps> = ({
     const y = Math.floor(Math.random() * canvasSize.current.h);
     const translateX = 0;
     const translateY = 0;
-    const pSize = Math.floor(Math.random() * 2) + size;
+    const circleSize = Math.floor(Math.random() * 2) + particleSize;
     const alpha = 0;
     const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
     const dx = (Math.random() - 0.5) * 0.1;
@@ -133,7 +131,7 @@ const Particles: React.FC<ParticlesProps> = ({
       y,
       translateX,
       translateY,
-      size: pSize,
+      size: circleSize,
       alpha,
       targetAlpha,
       dx,
@@ -162,12 +160,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
   const clearContext = () => {
     if (context.current) {
-      context.current.clearRect(
-        0,
-        0,
-        canvasSize.current.w,
-        canvasSize.current.h
-      );
+      context.current.clearRect(0, 0, canvasSize.current.w, canvasSize.current.h);
     }
   };
 
@@ -187,8 +180,7 @@ const Particles: React.FC<ParticlesProps> = ({
     start2: number,
     end2: number
   ): number => {
-    const remapped =
-      ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
+    const remapped = ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
     return remapped > 0 ? remapped : 0;
   };
 
@@ -203,9 +195,7 @@ const Particles: React.FC<ParticlesProps> = ({
         canvasSize.current.h - circle.y - circle.translateY - circle.size, // distance from bottom edge
       ];
       const closestEdge = edge.reduce((a, b) => Math.min(a, b));
-      const remapClosestEdge = parseFloat(
-        remapValue(closestEdge, 0, 20, 0, 1).toFixed(2)
-      );
+      const remapClosestEdge = parseFloat(remapValue(closestEdge, 0, 20, 0, 1).toFixed(2));
       if (remapClosestEdge > 1) {
         circle.alpha += 0.02;
         if (circle.alpha > circle.targetAlpha) {
@@ -217,11 +207,9 @@ const Particles: React.FC<ParticlesProps> = ({
       circle.x += circle.dx + vx;
       circle.y += circle.dy + vy;
       circle.translateX +=
-        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) /
-        ease;
+        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) / ease;
       circle.translateY +=
-        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) /
-        ease;
+        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) / ease;
 
       drawCircle(circle, true);
 

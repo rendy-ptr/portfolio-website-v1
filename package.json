@@ -2,12 +2,13 @@
   "name": "personal-portfolio",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "tsc -b && next build",
-    "lint": "eslint .",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --fix app/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write app/**/*.{js,jsx,ts,tsx,css,md,json}",
+    "pre-commit": "npm run lint && npm run format"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.0",
@@ -44,21 +45,28 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
     "@types/node": "^22.5.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@types/webfontloader": "^1.6.38",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.9.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.24",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
+    "prettier": "^3.5.2",
     "tailwindcss": "^3.4.12",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
   }
 }

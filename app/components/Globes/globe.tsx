@@ -1,6 +1,8 @@
-import { Canvas, useFrame, ThreeEvent } from "@react-three/fiber";
+import type { ThreeEvent } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
-import { LineSegments, SphereGeometry, MathUtils } from "three";
+import type { LineSegments } from "three";
+import { SphereGeometry, MathUtils } from "three";
 
 function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
   const meshRef = useRef<LineSegments>(null);
@@ -23,21 +25,9 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
         setIsAutoRotating(false);
       }, pauseDuration);
     } else if (!isAutoRotating) {
-      meshRef.current.rotation.x = MathUtils.lerp(
-        meshRef.current.rotation.x,
-        0,
-        returnSpeed
-      );
-      meshRef.current.rotation.y = MathUtils.lerp(
-        meshRef.current.rotation.y,
-        0,
-        returnSpeed
-      );
-      meshRef.current.rotation.z = MathUtils.lerp(
-        meshRef.current.rotation.z,
-        0,
-        returnSpeed
-      );
+      meshRef.current.rotation.x = MathUtils.lerp(meshRef.current.rotation.x, 0, returnSpeed);
+      meshRef.current.rotation.y = MathUtils.lerp(meshRef.current.rotation.y, 0, returnSpeed);
+      meshRef.current.rotation.z = MathUtils.lerp(meshRef.current.rotation.z, 0, returnSpeed);
 
       if (
         Math.abs(meshRef.current.rotation.x) < 0.001 &&
@@ -88,8 +78,7 @@ function Scene({ setCursor }: { setCursor: (cursor: string) => void }) {
       scale={0.9}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-    >
+      onPointerUp={handlePointerUp}>
       <edgesGeometry args={[new SphereGeometry(1, 10, 10)]} />
       <lineBasicMaterial color="#FFFFFF" linewidth={1} />
     </lineSegments>
@@ -112,8 +101,7 @@ export default function Globe() {
           justifyContent: "center",
           alignItems: "center",
           boxShadow: "0 0 15px #A8A8A8",
-        }}
-      >
+        }}>
         <div className="w-[65px] h-[65px]">
           <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
             <Scene setCursor={setCursor} />
