@@ -111,3 +111,7 @@ export const PROJECTS = {
     },
   ],
 };
+
+export const CERTIFICATE = {
+  TITLE: "Certificate",
+};

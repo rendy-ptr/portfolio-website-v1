@@ -7,6 +7,7 @@ import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import SkillSection from "./sections/SkiilsSections";
 import ProjectsSection from "./sections/ProjectsSection";
+import CertificateSection from "./sections/CertificateSection";
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
         <ExperienceSection />
         <SkillSection />
         <ProjectsSection />
+        <CertificateSection />
         <div className="h-[200vh]" />
       </div>
     </div>

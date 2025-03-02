@@ -131,3 +131,15 @@ export interface ProjectCardProps {
   description: string;
   techStack: { icon: IconType; name: string }[];
 }
+
+export interface InfiniteMovingCardsProps {
+  items: {
+    title: string;
+    body: string;
+    link: string;
+  }[];
+  direction?: "left" | "right";
+  speed?: "fast" | "normal" | "slow";
+  pauseOnHover?: boolean;
+  className?: string;
+}
