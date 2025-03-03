@@ -135,11 +135,12 @@ export interface ProjectCardProps {
 export interface InfiniteMovingCardsProps {
   items: {
     title: string;
+    publisher: string;
     body: string;
     link: string;
   }[];
   direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
+  speed?: "fast" | "normal" | "slow" | "verySlow";
   pauseOnHover?: boolean;
   className?: string;
 }

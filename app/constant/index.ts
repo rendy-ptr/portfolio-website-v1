@@ -114,4 +114,24 @@ export const PROJECTS = {
 
 export const CERTIFICATE = {
   TITLE: "Certificate",
+  LIST: [
+    {
+      title: "Competency Certificate Junior Web Developer",
+      publisher: "Publisher By • BNSP",
+      body: "June, 2023 - June, 2026 • 3 years",
+      link: "https://drive.google.com/file/d/1GJEktBkYL1ZnGLqILGBdc6mYNJ9vfqri/view?usp=sharing",
+    },
+    {
+      title: "Basics of Data Science",
+      publisher: "Publisher By • DICODING",
+      body: "Nov, 2024 - Nov, 2027 • 3 years",
+      link: "https://drive.google.com/file/d/1TMTqKlDXjaAcvgubSSdcL_OLwn_MOIBD/view?usp=sharing",
+    },
+    {
+      title: "Basics of Structured Query Language (SQL)",
+      publisher: "Publisher By • DICODING",
+      body: "Nov, 2024 - Nov, 2027 • 3 years",
+      link: "https://drive.google.com/file/d/1bGG7yCxn_VIAICmb2qOgMAGy_43jF-Kh/view?usp=sharing",
+    },
+  ],
 };
