@@ -133,5 +133,11 @@ export const CERTIFICATE = {
       body: "Nov, 2024 - Nov, 2027 • 3 years",
       link: "https://drive.google.com/file/d/1bGG7yCxn_VIAICmb2qOgMAGy_43jF-Kh/view?usp=sharing",
     },
+    {
+      title: "Basics of Python Programming",
+      publisher: "Publisher By • DICODING",
+      body: "March, 2025 - March, 2028 • 3 years",
+      link: "https://drive.google.com/file/d/1rXmOESJxCFQE6UWaBVj_mKYUxzUfSDPK/view?usp=sharing",
+    },
   ],
 };
