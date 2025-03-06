@@ -1,40 +1,69 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import type { LoadingScreenProps } from "../../types/registry/registryType";
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState<number | null>(null);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const animationFrameRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
-    let animationFrame: number;
-    const startTime = Date.now();
-    const duration = 3000; // 3 seconds total duration
+    let observer: PerformanceObserver | null = null;
+    let detectedLCP = false;
+
+    if (typeof window !== "undefined" && "PerformanceObserver" in window) {
+      observer = new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lcpEntry = entries[entries.length - 1];
+        if (lcpEntry && !detectedLCP) {
+          detectedLCP = true;
+          const dynamicDuration = Math.min(lcpEntry.startTime + 1000, 5000);
+          setDuration(dynamicDuration);
+          startTimeRef.current = Date.now();
+        }
+      });
+      observer.observe({ type: "largest-contentful-paint", buffered: true });
+    }
+
+    return () => {
+      observer?.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (duration === null) return;
+    startTimeRef.current = Date.now();
 
     const updateProgress = () => {
-      const currentTime = Date.now();
-      const elapsed = currentTime - startTime;
+      if (startTimeRef.current === null || duration === null) return;
+      const elapsed = Date.now() - startTimeRef.current;
       const newProgress = Math.min((elapsed / duration) * 100, 100);
-
       setProgress(newProgress);
 
       if (newProgress < 100) {
-        animationFrame = requestAnimationFrame(updateProgress);
-      } else if (newProgress === 100) {
-        // Tambah sedikit delay setelah mencapai 100%
+        animationFrameRef.current = requestAnimationFrame(updateProgress);
+      } else {
         setTimeout(() => {
+          setIsCompleted(true);
           onComplete();
-        }, 100);
+        }, 500);
       }
     };
 
-    animationFrame = requestAnimationFrame(updateProgress);
+    animationFrameRef.current = requestAnimationFrame(updateProgress);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, [onComplete]);
+  }, [duration, onComplete]);
+
+  if (isCompleted) return null;
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-black text-white z-50">
