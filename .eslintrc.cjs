@@ -1,12 +1,13 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: ["./tsconfig.eslint.json"], 
+    project: ["./tsconfig.eslint.json"],
     ecmaVersion: "latest",
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
     },
+    extraFileExtensions: [".json"],
   },
   env: {
     browser: true,
@@ -39,12 +40,19 @@ module.exports = {
       version: "detect",
     },
   },
-  ignorePatterns: ["node_modules/**", ".next/**", "out/**", "public/**", "*.config.js"],
+  ignorePatterns: [
+    "node_modules/**",
+    ".next/**",
+    "out/**",
+    "public/**",
+    "*.config.js",
+    "package.json",
+  ],
   overrides: [
     {
-      files: ["*.js", "*.cjs", "*.mjs"],
+      files: ["*.js", "*.cjs", "*.mjs", "package.json"],
       parserOptions: {
-        project: null, 
+        project: null,
       },
     },
   ],
