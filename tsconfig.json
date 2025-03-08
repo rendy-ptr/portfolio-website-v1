@@ -14,9 +14,9 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": ["src/*"]
     },
     "plugins": [{ "name": "next" }]
   },
