@@ -10,17 +10,29 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const estimatedDuration = useRef<number | null>(null);
+  const hasLoaded = useRef(false);
 
   useEffect(() => {
     const handleLoad = () => {
-      const startLoad = performance.timeOrigin || performance.now();
-      const loadTime = performance.now() - startLoad;
+      if (hasLoaded.current) return; // Mencegah eksekusi ulang
+      hasLoaded.current = true;
 
-      // Pastikan durasi tidak negatif dan minimal 1000ms untuk smooth loading
-      estimatedDuration.current = Math.max(loadTime + 1000, 1500, 5000);
+      const [navigationEntry] = performance.getEntriesByType("navigation");
+      const loadTime = navigationEntry
+        ? navigationEntry.duration
+        : performance.now() - performance.timeOrigin;
+      estimatedDuration.current = Math.max(
+        loadTime * 1.5,
+        loadTime + 1000,
+        1500 + Math.random() * 1000
+      );
     };
 
-    window.addEventListener("load", handleLoad);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad, { once: true });
+    }
 
     return () => {
       window.removeEventListener("load", handleLoad);
@@ -28,14 +40,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
-    const waitForDuration = setInterval(() => {
-      if (estimatedDuration.current !== null) {
-        clearInterval(waitForDuration);
-        startTimeRef.current = performance.now();
-        animationFrameRef.current = requestAnimationFrame(updateProgress);
-      }
-    }, 10);
-
     const updateProgress = () => {
       if (!startTimeRef.current || estimatedDuration.current === null) return;
       const elapsed = performance.now() - startTimeRef.current;
@@ -51,6 +55,14 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         }, 500);
       }
     };
+
+    const waitForDuration = setInterval(() => {
+      if (estimatedDuration.current !== null) {
+        clearInterval(waitForDuration);
+        startTimeRef.current = performance.now();
+        animationFrameRef.current = requestAnimationFrame(updateProgress);
+      }
+    }, 10);
 
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);

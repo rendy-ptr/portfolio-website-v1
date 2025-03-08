@@ -7,6 +7,7 @@ import { PROJECTS } from "../constant/index";
 import { CardBeam } from "../components/Cards/CardBeam";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { lucideIcons } from "../icon/lucide-icons";
+import Link from "next/link";
 
 const ProjectsSection: FC = () => {
   return (
@@ -40,12 +41,11 @@ const ProjectsSection: FC = () => {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         variants={CreateAnimation("up", 1.0)}
         className="flex items-center justify-center mt-4">
-        <InteractiveHoverButton
-          variant="loadmore"
-          icon={<lucideIcons.ArrowUpRight size={20} />}
-          onClick={() => alert("Load More Bisa!!")}>
-          {PROJECTS.BUTTON}
-        </InteractiveHoverButton>
+        <Link href="/my-projects">
+          <InteractiveHoverButton variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />}>
+            {PROJECTS.BUTTON}
+          </InteractiveHoverButton>
+        </Link>
       </motion.div>
     </motion.section>
   );
