@@ -1,8 +1,13 @@
 "use client";
 import { ThemeProvider } from "next-themes";
 import { useState } from "react";
-import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import "./index.css";
+import dynamic from "next/dynamic";
+
+// Import LoadingScreen dengan dynamic import untuk mencegah SSR chunk error
+const LoadingScreen = dynamic(() => import("@/components/LoadingScreen/LoadingScreen"), {
+  ssr: false,
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);

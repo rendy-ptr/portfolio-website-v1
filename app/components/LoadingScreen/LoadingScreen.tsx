@@ -6,42 +6,40 @@ import type { LoadingScreenProps } from "../../types/registry/registryType";
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState<number | null>(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
+  const estimatedDuration = useRef<number | null>(null);
 
   useEffect(() => {
-    let observer: PerformanceObserver | null = null;
-    let detectedLCP = false;
+    const handleLoad = () => {
+      const startLoad = performance.timeOrigin || performance.now();
+      const loadTime = performance.now() - startLoad;
 
-    if (typeof window !== "undefined" && "PerformanceObserver" in window) {
-      observer = new PerformanceObserver((entryList) => {
-        const entries = entryList.getEntries();
-        const lcpEntry = entries[entries.length - 1];
-        if (lcpEntry && !detectedLCP) {
-          detectedLCP = true;
-          const dynamicDuration = Math.min(lcpEntry.startTime + 1000, 5000);
-          setDuration(dynamicDuration);
-          startTimeRef.current = Date.now();
-        }
-      });
-      observer.observe({ type: "largest-contentful-paint", buffered: true });
-    }
+      // Pastikan durasi tidak negatif dan minimal 1000ms untuk smooth loading
+      estimatedDuration.current = Math.max(loadTime + 1000, 1500, 5000);
+    };
+
+    window.addEventListener("load", handleLoad);
 
     return () => {
-      observer?.disconnect();
+      window.removeEventListener("load", handleLoad);
     };
   }, []);
 
   useEffect(() => {
-    if (duration === null) return;
-    startTimeRef.current = Date.now();
+    const waitForDuration = setInterval(() => {
+      if (estimatedDuration.current !== null) {
+        clearInterval(waitForDuration);
+        startTimeRef.current = performance.now();
+        animationFrameRef.current = requestAnimationFrame(updateProgress);
+      }
+    }, 10);
 
     const updateProgress = () => {
-      if (startTimeRef.current === null || duration === null) return;
-      const elapsed = Date.now() - startTimeRef.current;
-      const newProgress = Math.min((elapsed / duration) * 100, 100);
+      if (!startTimeRef.current || estimatedDuration.current === null) return;
+      const elapsed = performance.now() - startTimeRef.current;
+      const newProgress = Math.min((elapsed / estimatedDuration.current) * 100, 100);
       setProgress(newProgress);
 
       if (newProgress < 100) {
@@ -54,14 +52,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       }
     };
 
-    animationFrameRef.current = requestAnimationFrame(updateProgress);
-
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      clearInterval(waitForDuration);
     };
-  }, [duration, onComplete]);
+  }, [onComplete]);
 
   if (isCompleted) return null;
 
