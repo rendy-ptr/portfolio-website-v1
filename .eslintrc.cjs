@@ -46,11 +46,12 @@ module.exports = {
     "out/**",
     "public/**",
     "*.config.js",
-    "package.json",
+    "*.json",
+    "*.d.ts",
   ],
   overrides: [
     {
-      files: ["*.js", "*.cjs", "*.mjs", "package.json"],
+      files: ["*.js", "*.cjs", "*.mjs", "*.json", "*.d.ts"],
       parserOptions: {
         project: null,
       },
