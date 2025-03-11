@@ -59,6 +59,13 @@ export const ABOUT_ME = {
 export const EXPERIENCE = {
   TITLE: "Experience",
   GITHUB: "Github",
+  LIST: [
+    {
+      title: "Internship as a Teknikal Programmer at PT. Jidoka System Indonesia",
+      body: "March, 2023 - June, 2023 • 3 months",
+      footer: "Internship as a Teknikal Programmer at PT. Jidoka System Indonesia",
+    },
+  ],
 };
 
 export const SKILLS = {

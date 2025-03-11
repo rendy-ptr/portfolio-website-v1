@@ -1,5 +1,7 @@
 export type CustomCardProps = {
-  title: string;
-  body: string;
-  footer: string;
+  experience: {
+    title: string;
+    body: string;
+    footer: string;
+  }[];
 };

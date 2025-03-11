@@ -26,13 +26,10 @@ const HomeSection: FC = () => {
         viewport={{ once: false, amount: 0.5 }}
         variants={staggerContainer(0.5)}
         className="flex items-center justify-center min-h-screen z-10 container py-16 px-8">
-        {/* Container utama dengan flex-row */}
         <div className="flex w-full max-w-7xl">
-          {/* Kolom kiri: Profil, teks, dan tombol */}
           <motion.div
             variants={CreateAnimation("up", 1.2)}
             className="flex flex-col items-start justify-center w-1/2 space-y-6 text-left">
-            {/* Judul */}
             <motion.h1
               variants={CreateAnimation("up", 1.2)}
               className="text-6xl font-semibold text-[#D6D6D6]">

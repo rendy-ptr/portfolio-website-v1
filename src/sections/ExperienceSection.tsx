@@ -24,11 +24,7 @@ const ExperienceSection = () => {
       </motion.div>
       <motion.div className="flex justify-between gap-2 items-stretch mb-8">
         <motion.div variants={CreateAnimation("up", 1.0)} className="flex-1 flex">
-          <CustomCard
-            title="Internship as a Teknikal Programmer at PT. Jidoka System Indonesia"
-            body="March, 2023 - June, 2023 • 3 months"
-            footer="Internship as a Teknikal Programmer at PT. Jidoka System Indonesia"
-          />
+          <CustomCard experience={EXPERIENCE.LIST} />
         </motion.div>
       </motion.div>
       <motion.div>
