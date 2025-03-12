@@ -5,6 +5,7 @@ import { Sling as Hamburger } from "hamburger-react";
 import type { FC } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CreateAnimation, staggerContainer } from "@/animations/animation";
 
 const Navbar: FC = () => {
   const [isOpen, setOpen] = useState(false);
@@ -33,7 +34,7 @@ const Navbar: FC = () => {
             animate={{ clipPath: "circle(150% at 100% 50%)" }}
             exit={{ clipPath: "circle(0% at 100% 50%)" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 right-0 h-screen w-[20rem] bg-[#F5F5F5] z-40 flex flex-col justify-between shadow-lg px-8 py-10">
+            className="fixed top-0 right-0 h-screen w-[30rem] bg-[#F5F5F5] z-40 flex flex-col justify-between shadow-lg px-8 py-10">
             {/* Navigation Title */}
             <div className="mt-12">
               <h2 className="text-black text-lg font-bold">Navigation</h2>
@@ -41,10 +42,16 @@ const Navbar: FC = () => {
             </div>
 
             {/* Menu List */}
-            <ul className="text-black flex flex-col space-y-12 text-3xl font-light flex-1 justify-center">
+            <motion.ul
+              variants={staggerContainer(0.2)}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="text-black flex flex-col space-y-12 text-3xl font-light flex-1 justify-center">
               {NAVBAR.TEXT_NAVIGATION.map((item, index) => (
-                <li
+                <motion.li
                   key={index}
+                  variants={CreateAnimation("right", 0.5)}
                   className="cursor-pointer hover:opacity-75 relative pl-6 before:content-['•'] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-black before:opacity-0 hover:before:opacity-100 transition-opacity"
                   onClick={() => {
                     const sectionId = item.toLowerCase().replace(/\s+/g, "-"); // Ubah teks ke format ID
@@ -54,15 +61,15 @@ const Navbar: FC = () => {
                     }
                   }}>
                   {item}
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
 
             {/* Links */}
             <div className="mb-12">
               <h2 className="text-black text-lg font-bold">Links</h2>
               <hr className="border-t border-gray-300 my-2" />
-              <div className="text-black flex gap-2 text-xs">
+              <div className="text-black flex gap-2 text-sm">
                 {NAVBAR.TEXT_LINKS.map((link, index) => (
                   <a
                     key={index}

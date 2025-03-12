@@ -17,7 +17,7 @@ const ProjectsSection: FC = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       variants={staggerContainer(0.5)}
-      className="container py-16">
+      className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
       <motion.h1
         variants={CreateAnimation("left", 1.0)}
         className="text-4xl font-bold text-white mb-8">
@@ -41,7 +41,7 @@ const ProjectsSection: FC = () => {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         variants={CreateAnimation("up", 1.0)}
         className="flex items-center justify-center mt-4">
-        <Link href="/my-projects">
+        <Link href="/my-projects" prefetch={false}>
           <InteractiveHoverButton variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />}>
             {PROJECTS.BUTTON}
           </InteractiveHoverButton>

@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { useState } from "react";
 import "./index.css";
 import dynamic from "next/dynamic";
+import { AnimatePresence } from "framer-motion"; // Import AnimatePresence
 
 // Import LoadingScreen dengan dynamic import untuk mencegah SSR chunk error
 const LoadingScreen = dynamic(() => import("src/components/LoadingScreen/LoadingScreen"), {
@@ -19,7 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {isLoading ? (
             <LoadingScreen onComplete={() => setIsLoading(false)} />
           ) : (
-            <div className="min-h-screen">{children}</div>
+            <div className="min-h-screen">
+              {/* Gunakan AnimatePresence untuk mengelola transisi halaman */}
+              <AnimatePresence mode="wait">{children}</AnimatePresence>
+            </div>
           )}
         </ThemeProvider>
       </body>

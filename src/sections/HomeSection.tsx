@@ -25,11 +25,14 @@ const HomeSection: FC = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.5 }}
         variants={staggerContainer(0.5)}
-        className="flex items-center justify-center min-h-screen z-10 container py-16 px-8">
+        className="flex items-center justify-center min-h-[110vh] overflow-visible py-16 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+        {/* Container utama dengan flex-row */}
         <div className="flex w-full max-w-7xl">
+          {/* Kolom kiri: Profil, teks, dan tombol */}
           <motion.div
             variants={CreateAnimation("up", 1.2)}
             className="flex flex-col items-start justify-center w-1/2 space-y-6 text-left">
+            {/* Judul */}
             <motion.h1
               variants={CreateAnimation("up", 1.2)}
               className="text-6xl font-semibold text-[#D6D6D6]">
@@ -96,7 +99,7 @@ const HomeSection: FC = () => {
           </motion.div>
 
           {/* Kolom kanan: Card3d */}
-          <motion.div ref={LanyardCardRef} className="flex items-center justify-center w-1/2">
+          <motion.div ref={LanyardCardRef} className="w-1/2 flex items-center justify-center">
             {isInView && memoizedLanyardCard}
           </motion.div>
         </div>

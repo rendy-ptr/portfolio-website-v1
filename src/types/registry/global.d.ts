@@ -14,9 +14,12 @@ declare module "*.webp";
 declare module "meshline" {
   import { BufferGeometry, Material } from "three";
 
-  export class MeshLineGeometry extends BufferGeometry {}
+  export class MeshLineGeometry extends BufferGeometry {
+    setPoints(points: THREE.Vector3[]): void;
+  }
   export class MeshLineMaterial extends Material {}
 }
+
 
 // Menambahkan elemen JSX khusus untuk MeshLine
 declare global {

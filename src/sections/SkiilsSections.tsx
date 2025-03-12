@@ -14,7 +14,7 @@ const SkillSection: FC = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       variants={staggerContainer(0.5)}
-      className="container py-16">
+      className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
       <motion.h1
         variants={CreateAnimation("left", 1.0)}
         className="text-4xl font-bold text-white mb-8">

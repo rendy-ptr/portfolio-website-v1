@@ -13,7 +13,7 @@ export const CardBeam: React.FC<ProjectCardProps> = ({ image, title, description
   const randomDuration = useMemo(() => Math.random() * 4 + 6, []);
   const initialOffset = useMemo(() => Math.floor(Math.random() * 101), []);
   return (
-    <Card className="relative w-[330px] rounded-xl overflow-hidden bg-zinc-900 border-transparent">
+    <Card className="relative w-[350px] rounded-xl overflow-hidden bg-zinc-900 border-transparent">
       <CardHeader>
         <Image
           src={image || "/placeholder.svg"}

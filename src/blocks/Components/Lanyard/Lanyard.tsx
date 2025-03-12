@@ -23,7 +23,8 @@ extend({
 });
 
 function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
-  const band = useRef<THREE.Mesh<typeof MeshLineGeometry, typeof MeshLineMaterial>>(null);
+  const band = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.Material>>(null);
+
   const fixed = useRef<RapierRigidBody>(null);
   const j1 = useRef<RapierRigidBody>(null);
   const j2 = useRef<RapierRigidBody>(null);
@@ -105,7 +106,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
     curve.points[1].copy(j2Lerped ?? j2.current.translation());
     curve.points[2].copy(j1Lerped ?? j1.current.translation());
     curve.points[3].copy(fixed.current.translation());
-    band.current.geometry.setPoints(curve.getPoints(32));
+    (band.current.geometry as unknown as MeshLineGeometry).setPoints(curve.getPoints(32));
 
     ang.copy(card.current.angvel());
     rot.copy(card.current.rotation());
@@ -169,7 +170,7 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
             useMap: true,
             map: texture,
             repeat: [-4, 1],
-            lineWidth: 0.3,
+            lineWidth: 0.23,
           } as CustomMeshLineMaterialProps)}
         />
       </mesh>
@@ -179,7 +180,8 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
 
 export default function LanyardCard({ debug = false }) {
   return (
-    <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center bg-transparent">
+    //mr-24 for set right corner
+    <div className="absolute top-0 right-0 w-1/2 h-screen flex justify-start items-start bg-transparent ">
       <Canvas
         gl={{
           alpha: true,
