@@ -109,16 +109,22 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), [addVariablesForColors]],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
 
 function addVariablesForColors({ addBase, theme }) {
-  let allColors = flattenColorPalette(theme("colors"));
+  let allColors = theme("colors"); // Ambil semua warna dari Tailwind
   let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).flatMap(
+      ([key, val]) =>
+        typeof val === "string"
+          ? [[`--${key}`, val]] // Jika warna langsung (contoh: "red": "#ff0000")
+          : Object.entries(val).map(([subKey, subVal]) => [`--${key}-${subKey}`, subVal]) // Jika warna memiliki shade (contoh: "blue-500": "#3b82f6")
+    )
   );
- 
+
   addBase({
     ":root": newVars,
   });
 }
+
