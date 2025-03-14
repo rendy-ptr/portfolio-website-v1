@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { staggerContainer, CreateAnimation } from "@/animations/animation";
 import { PROJECTS } from "@/constant/index";
 import { CardBeam } from "@/components/Cards/CardBeam";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Button from "@/components/Buttons/Button";
 import { lucideIcons } from "@/icon/lucide-icons";
 import Link from "next/link";
 
@@ -42,9 +42,9 @@ const ProjectsSection: FC = () => {
         variants={CreateAnimation("up", 1.0)}
         className="flex items-center justify-center mt-4">
         <Link href="/my-projects" prefetch={false}>
-          <InteractiveHoverButton variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />}>
+          <Button variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />}>
             {PROJECTS.BUTTON}
-          </InteractiveHoverButton>
+          </Button>
         </Link>
       </motion.div>
     </motion.section>

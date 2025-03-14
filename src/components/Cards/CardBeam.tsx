@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Button from "@/components/Buttons/Button";
 import { lucideIcons } from "@/icon/lucide-icons";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
@@ -39,12 +39,12 @@ export const CardBeam: React.FC<ProjectCardProps> = ({ image, title, description
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <InteractiveHoverButton
+        <Button
           variant="loadmore"
           icon={<lucideIcons.Github size={20} />}
           onClick={() => alert("Github Bisa!!")}>
           {PROJECTS.GITHUB}
-        </InteractiveHoverButton>
+        </Button>
       </CardFooter>
       <BorderBeam duration={randomDuration} size={50} initialOffset={initialOffset} />
     </Card>

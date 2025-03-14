@@ -6,18 +6,19 @@ import { getButtonVariantStyles } from "@/utils/buttonVariantStyleUtils";
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ children, className, variant = "default", icon, onClick, ...props }, ref) => {
+>(({ children, className, variant = "default", icon, onClick, rounded = true, ...props }, ref) => {
   const styles = getButtonVariantStyles(variant);
 
   return (
     <button
       ref={ref}
       className={cn(
-        "group relative w-auto cursor-pointer overflow-hidden rounded-full p-2 px-6 text-center font-semibold transition-colors duration-300",
+        "group relative w-auto cursor-pointer overflow-hidden p-2 px-6 text-center font-semibold transition-colors duration-300",
         styles.bg,
         styles.text,
         styles.hoverBg,
         styles.hoverText,
+        rounded ? "rounded-full" : "rounded-none",
         className
       )}
       onClick={onClick}

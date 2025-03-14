@@ -75,9 +75,13 @@ export type Circle = {
   magnetism: number;
 };
 
-export interface InteractiveHoverButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface InteractiveHoverButtonProps {
   variant?: "default" | "inverted" | "primary" | "secondary" | "loadmore";
   icon?: React.ReactNode;
+  rounded?: boolean;
+  onClick?: () => void;
+  className?: string;
+  children: React.ReactNode;
 }
 
 export interface RotatingTextRef {

@@ -1,19 +1,15 @@
-import ScrollProgress from "../components/ScrollProgress/ScrollProgress";
-import Navbar from "../components/Navbar/Navbar";
-import ParticlesDemo from "../components/Particles/Particles";
 import HomeSection from "../sections/HomeSection";
 import AboutSection from "../sections/AboutSection";
 import ExperienceSection from "../sections/ExperienceSection";
 import SkillSection from "../sections/SkiilsSections";
 import ProjectsSection from "../sections/ProjectsSection";
 import CertificateSection from "../sections/CertificateSection";
+import Navbar from "@/components/Navbar/Navbar";
 
 export default function Page() {
   return (
-    <div className="relative">
-      <ScrollProgress />
+    <div>
       <Navbar />
-      <ParticlesDemo />
       <div className="space-y-32">
         <HomeSection />
         <AboutSection />

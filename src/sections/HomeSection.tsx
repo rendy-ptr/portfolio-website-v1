@@ -5,7 +5,7 @@ import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { TITLE, BUTTONS, CUSTOM_TYPING } from "@/constant/index";
 import { CreateAnimation, staggerContainer } from "@/animations/animation";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Button from "@/components/Buttons/Button";
 import { lucideIcons } from "@/icon/lucide-icons";
 import RotatingText from "@/blocks/TextAnimations/RotatingText/RotatingText";
 import LanyardCard from "@/blocks/Components/Lanyard/Lanyard";
@@ -77,23 +77,23 @@ const HomeSection: FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}>
-                <InteractiveHoverButton
+                <Button
                   variant="default"
                   icon={<lucideIcons.Download size={20} />}
                   onClick={() => alert("Download Bisa!!!")}>
                   {BUTTONS.DOWNLOAD_CV}
-                </InteractiveHoverButton>
+                </Button>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}>
-                <InteractiveHoverButton
+                <Button
                   variant="inverted"
                   icon={<lucideIcons.ChevronRight size={20} />}
                   onClick={() => alert("Contact Me Bisa!!!!")}>
                   {BUTTONS.CONTACT_ME}
-                </InteractiveHoverButton>
+                </Button>
               </motion.div>
             </motion.div>
           </motion.div>

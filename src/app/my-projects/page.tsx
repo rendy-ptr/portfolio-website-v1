@@ -5,7 +5,7 @@ import { staggerContainer, CreateAnimation } from "@/animations/animation";
 import { PROJECTS } from "@/constant/index";
 import { CardBeam } from "@/components/Cards/CardBeam";
 import Link from "next/link";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Button from "@/components/Buttons/Button";
 import { lucideIcons } from "@/icon/lucide-icons";
 
 const MyProjectsPage: React.FC = () => {
@@ -31,16 +31,16 @@ const MyProjectsPage: React.FC = () => {
       </motion.div>
       <motion.h1
         variants={CreateAnimation("up", 1.0)}
-        className="text-2xl font-bold text-white text-center mt-8">
-        Go Back
+        className="text-4xl font-bold text-white text-center mt-8">
+        Back To Homepage
       </motion.h1>
       <motion.div
         variants={CreateAnimation("up", 1.0)}
         className="flex items-center justify-center mt-4">
         <Link href="/" prefetch={false}>
-          <InteractiveHoverButton variant="loadmore" icon={<lucideIcons.House size={20} />}>
-            Home
-          </InteractiveHoverButton>
+          <Button variant="loadmore" rounded={true} icon={<lucideIcons.House size={20} />}>
+            Homepage
+          </Button>
         </Link>
       </motion.div>
     </motion.section>
