@@ -1,8 +1,7 @@
 "use client";
 
 import type React from "react";
-// import type { FormContactProps } from "@/types/custom/appType";
-// import { useState } from "react";
+import { useState } from "react";
 import Button from "@/components/Buttons/Button";
 import { lucideIcons } from "@/icon/lucide-icons";
 import { z } from "zod";
@@ -28,9 +27,32 @@ const FormContact: React.FC = () => {
     resolver: zodResolver(FormContactSchema),
   });
 
-  const formSubmit = (values: FormContactProps) => {
-    console.log("Data yang dikirim:", values);
-    reset();
+  const [status, setStatus] = useState<string | null>(null);
+
+  const formSubmit = async (values: FormContactProps) => {
+    setStatus("loading");
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        alert("Email sent successfully");
+        reset();
+      } else {
+        setStatus("error");
+        alert("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Email sending error:", error);
+      setStatus("error");
+      alert("Something went wrong");
+    }
   };
 
   return (
@@ -94,9 +116,16 @@ const FormContact: React.FC = () => {
           <span className="text-red-600 text-sm font-bold">{errors.message?.message}</span>
         )}
       </div>
-      <Button variant="loadmore" icon={<lucideIcons.Mail size={20} />} rounded={true}>
-        Send Message
+      <Button
+        variant="loadmore"
+        icon={<lucideIcons.Mail size={20} />}
+        rounded={true}
+        disabled={status === "loading"}>
+        {status === "loading" ? "Sending Email..." : "Send Email"}
       </Button>
+      {status === "loading" && <p className="text-white">Sending email...</p>}
+      {status === "success" && <p className="text-white">Email sent successfully</p>}
+      {status === "error" && <p className="text-red-600">Failed to send email</p>}
     </form>
   );
 };

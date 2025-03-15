@@ -82,6 +82,7 @@ export interface InteractiveHoverButtonProps {
   onClick?: () => void;
   className?: string;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface RotatingTextRef {

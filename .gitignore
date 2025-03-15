@@ -16,6 +16,7 @@ out/
 # Environment variables
 .env*
 !.env.example
+.env.local
 
 # Logs
 logs/
