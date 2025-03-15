@@ -42,7 +42,8 @@ export const CardBeam: React.FC<ProjectCardProps> = ({ image, title, description
         <Button
           variant="loadmore"
           icon={<lucideIcons.Github size={20} />}
-          onClick={() => alert("Github Bisa!!")}>
+          onClick={() => alert("Github Bisa!!")}
+          rounded={true}>
           {PROJECTS.GITHUB}
         </Button>
       </CardFooter>

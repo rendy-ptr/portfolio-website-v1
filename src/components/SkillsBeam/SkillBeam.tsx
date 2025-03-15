@@ -217,7 +217,7 @@ export function SkillBeam() {
 }
 const TextSkills = () => {
   return (
-    <div className="w-[30rem] bg-[#27272a] p-6 rounded-xl outline outline-1 outline-[#2e3949] shadow-[0_0_10px_#2e3949] flex items-center justify-center">
+    <div className="w-[30rem] bg-[#27272a] p-6 rounded-xl outline outline-2 outline-[#2c323c]  flex items-center justify-center">
       <h1 className="text-6xl font-bold bg-gradient-to-b from-gray-100 to-gray-600 bg-clip-text text-transparent">
         {SKILLS.TITLE_ANIMATED_BEAM}
       </h1>

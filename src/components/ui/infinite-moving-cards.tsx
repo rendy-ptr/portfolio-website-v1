@@ -52,7 +52,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
       getSpeed();
       setStart(true);
     }
-  }, [getDirection, getSpeed, items.length]); // ✅ Tambahkan dependency items.length
+  }, [getDirection, getSpeed, items.length]);
 
   useEffect(() => {
     addAnimation();
@@ -74,7 +74,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
         )}>
         {items.map((item, idx) => (
           <li
-            className="w-[30rem] max-w-full relative rounded-xl border border-[#2e3949] flex-shrink-0 shadow-[0_0_10px_#2e3949] px-6 py-6"
+            className="w-[30rem] max-w-full relative rounded-xl outline outline-2 outline-[#2c323c] flex-shrink-0 px-6 py-6"
             style={{ background: "#27272a" }}
             key={idx}>
             <div className="flex flex-col gap-4 h-full">

@@ -2,15 +2,10 @@
 import { ThemeProvider } from "next-themes";
 import { useState } from "react";
 import "./index.css";
-import dynamic from "next/dynamic";
-import { AnimatePresence } from "framer-motion"; // Import AnimatePresence
+import { AnimatePresence } from "framer-motion";
 import ScrollProgress from "../components/ScrollProgress/ScrollProgress";
 import ParticlesDemo from "../components/Particles/Particles";
-
-// Import LoadingScreen dengan dynamic import untuk mencegah SSR chunk error
-const LoadingScreen = dynamic(() => import("src/components/LoadingScreen/LoadingScreen"), {
-  ssr: false,
-});
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,11 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <LoadingScreen onComplete={() => setIsLoading(false)} />
           ) : (
             <div className="relative min-h-screen">
-              {/* Komponen Global */}
               <ScrollProgress />
               <ParticlesDemo />
-
-              {/* Gunakan AnimatePresence untuk mengelola transisi halaman */}
               <AnimatePresence mode="wait">
                 <main>{children}</main>
               </AnimatePresence>

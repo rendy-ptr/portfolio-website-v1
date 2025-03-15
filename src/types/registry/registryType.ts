@@ -76,9 +76,9 @@ export type Circle = {
 };
 
 export interface InteractiveHoverButtonProps {
-  variant?: "default" | "inverted" | "primary" | "secondary" | "loadmore";
-  icon?: React.ReactNode;
-  rounded?: boolean;
+  variant: "default" | "inverted" | "primary" | "secondary" | "loadmore";
+  icon: React.ReactNode;
+  rounded: boolean;
   onClick?: () => void;
   className?: string;
   children: React.ReactNode;

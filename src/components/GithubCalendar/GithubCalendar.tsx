@@ -3,9 +3,16 @@ import React from "react";
 
 const GithubCalendar: React.FC = () => {
   return (
-    <div className="w-full py-8 bg-[#27272a] rounded-xl outline outline-1 outline-[#2e3949] shadow-[0_0_10px_#2e3949] grid place-items-center">
-      <div className="scale-110">
-        <GitHubCalendar username="rendy-ptr" />
+    <div className="w-full bg-[#27272a] rounded-xl outline outline-2 outline-[#2c323c] p-6 flex justify-center">
+      <div className="text-gray-200">
+        <GitHubCalendar
+          username="rendy-ptr"
+          blockSize={15}
+          blockMargin={5}
+          fontSize={16}
+          colorScheme="dark"
+          showWeekdayLabels={true}
+        />
       </div>
     </div>
   );

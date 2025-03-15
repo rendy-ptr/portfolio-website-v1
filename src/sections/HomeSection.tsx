@@ -80,7 +80,8 @@ const HomeSection: FC = () => {
                 <Button
                   variant="default"
                   icon={<lucideIcons.Download size={20} />}
-                  onClick={() => alert("Download Bisa!!!")}>
+                  onClick={() => alert("Download Bisa!!!")}
+                  rounded={true}>
                   {BUTTONS.DOWNLOAD_CV}
                 </Button>
               </motion.div>
@@ -91,7 +92,8 @@ const HomeSection: FC = () => {
                 <Button
                   variant="inverted"
                   icon={<lucideIcons.ChevronRight size={20} />}
-                  onClick={() => alert("Contact Me Bisa!!!!")}>
+                  onClick={() => alert("Contact Me Bisa!!!!")}
+                  rounded={true}>
                   {BUTTONS.CONTACT_ME}
                 </Button>
               </motion.div>

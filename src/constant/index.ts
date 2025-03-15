@@ -148,3 +148,7 @@ export const CERTIFICATE = {
     },
   ],
 };
+
+export const CONTACT_ME = {
+  TITLE: "Contact Me",
+};

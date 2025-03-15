@@ -6,6 +6,7 @@ import type { FC } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreateAnimation, staggerContainer } from "@/animations/animation";
+import Link from "next/link";
 
 const Navbar: FC = () => {
   const [isOpen, setOpen] = useState(false);
@@ -71,14 +72,14 @@ const Navbar: FC = () => {
               <hr className="border-t border-gray-300 my-2" />
               <div className="text-black flex gap-2 text-sm">
                 {NAVBAR.TEXT_LINKS.map((link, index) => (
-                  <a
+                  <Link
                     key={index}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cursor-pointer hover:opacity-75">
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

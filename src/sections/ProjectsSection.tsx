@@ -42,7 +42,7 @@ const ProjectsSection: FC = () => {
         variants={CreateAnimation("up", 1.0)}
         className="flex items-center justify-center mt-4">
         <Link href="/my-projects" prefetch={false}>
-          <Button variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />}>
+          <Button variant="loadmore" icon={<lucideIcons.ArrowUpRight size={20} />} rounded={true}>
             {PROJECTS.BUTTON}
           </Button>
         </Link>

@@ -5,3 +5,10 @@ export type CustomCardProps = {
     footer: string;
   }[];
 };
+
+export type FormContactProps = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
