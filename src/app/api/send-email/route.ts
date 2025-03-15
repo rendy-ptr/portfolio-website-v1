@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const transporterOptions: SMTPTransport.Options = {
       host: process.env.EMAIL_HOST,
       port: Number(process.env.EMAIL_PORT),
-      secure: Boolean(process.env.EMAIL_SECURE),
+      secure: process.env.EMAIL_SECURE === "true",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
     const transporter = nodemailer.createTransport(transporterOptions);
 
     const mailOptions = {
-      from: `"Website Contact" <bwattestink@gmail.com>`,
-      to: "rendyworksspace@gmail.com",
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
       replyTo: email,
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
