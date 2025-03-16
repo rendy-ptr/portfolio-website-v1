@@ -135,6 +135,7 @@ export interface ProjectCardProps {
   title: string;
   description: string;
   techStack: { icon: IconType; name: string }[];
+  github_url: string;
 }
 
 export interface InfiniteMovingCardsProps {

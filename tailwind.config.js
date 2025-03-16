@@ -98,6 +98,10 @@ module.exports = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        pulseGlow: {
+          "0%, 100%": { opacity: 0.1 },
+          "50%": { opacity: 1 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,6 +110,7 @@ module.exports = {
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        customPulse: "pulseGlow 3.0s infinite",
       },
     },
   },
@@ -127,4 +132,3 @@ function addVariablesForColors({ addBase, theme }) {
     ":root": newVars,
   });
 }
-

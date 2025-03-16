@@ -17,7 +17,7 @@ export const CUSTOM_TYPING = {
 };
 
 export const NAVBAR = {
-  TITLE: "{} Rendy Code Enjoyer",
+  TITLE: "{} rendy-ptr",
   TEXT_NAVIGATION: [
     "Home",
     "About Me",
@@ -80,14 +80,16 @@ export const PROJECTS = {
   GITHUB: "GITHUB",
   LIST: [
     {
-      image: "/placeholder.svg",
-      title: "Awesome Web App",
-      description: "A cutting-edge web application built with modern technologies.",
+      image: "/projects/web-porto.png",
+      title: "Portfolio Website",
+      description:
+        "A sleek and modern portfolio showcasing my expertise in machine learning and software development.",
       techStack: [
-        { icon: reactIcons.Javascript, name: "JavaScript" },
-        { icon: reactIcons.React, name: "React" },
+        { icon: reactIcons.NextJs, name: "Next Js" },
+        { icon: reactIcons.Tailwind, name: "Tailwind Css" },
         { icon: reactIcons.Typescript, name: "TypeScript" },
       ],
+      github_url: "https://github.com/rendy-ptr/Personal-Website",
     },
     {
       image: "/placeholder.svg",
@@ -97,6 +99,7 @@ export const PROJECTS = {
         { icon: reactIcons.React, name: "React Native" },
         { icon: reactIcons.Typescript, name: "TypeScript" },
       ],
+      github_url: "https://google.com",
     },
     {
       image: "/placeholder.svg",
@@ -106,6 +109,7 @@ export const PROJECTS = {
         { icon: reactIcons.NodeJs, name: "Node.js" },
         { icon: reactIcons.Mongodb, name: "MongoDB" },
       ],
+      github_url: "https://google.com",
     },
     {
       image: "/placeholder.svg",
@@ -115,6 +119,7 @@ export const PROJECTS = {
         { icon: reactIcons.NodeJs, name: "Node.js" },
         { icon: reactIcons.Mongodb, name: "MongoDB" },
       ],
+      github_url: "https://google.com",
     },
   ],
 };

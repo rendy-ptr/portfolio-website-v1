@@ -10,6 +10,12 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
+  // const metaData = {
+  //   title: "My Portfolio Website",
+  // image: "/og-image.png",
+  // url: "https://portfolio-template.vercel.app",
+  // };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body>

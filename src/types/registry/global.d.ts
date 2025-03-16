@@ -20,7 +20,6 @@ declare module "meshline" {
   export class MeshLineMaterial extends Material {}
 }
 
-
 // Menambahkan elemen JSX khusus untuk MeshLine
 declare global {
   namespace JSX {

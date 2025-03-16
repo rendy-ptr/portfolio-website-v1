@@ -18,9 +18,11 @@ export const BorderBeam = ({
   reverse = false,
   initialOffset = 0,
 }: BorderBeamProps) => {
-  const offsetDistance = reverse
-    ? [initialOffset + "%", initialOffset - 100 + "%"]
-    : [initialOffset - 100 + "%", initialOffset + "%"];
+  // Calculate the full path length (0% to 100%)
+  // Instead of animating from initialOffset-100 to initialOffset or vice versa,
+  // we'll animate through the full 100% path and use initialOffset as a starting point
+  const startPosition = initialOffset;
+  const endPosition = startPosition + (reverse ? -100 : 100);
 
   return (
     <div className="pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
@@ -39,10 +41,11 @@ export const BorderBeam = ({
             ...style,
           } as MotionStyle
         }
-        initial={{ offsetDistance: offsetDistance[0] }}
-        animate={{ offsetDistance: offsetDistance[1] }}
+        initial={{ offsetDistance: `${startPosition}%` }}
+        animate={{ offsetDistance: `${endPosition}%` }}
         transition={{
           repeat: Number.POSITIVE_INFINITY,
+          repeatType: "loop", // This ensures a smooth loop without jumps
           ease: "linear",
           duration,
           delay: -delay,
