@@ -49,7 +49,7 @@ const FormContact: React.FC = () => {
         alert("Failed to send email");
       }
     } catch (error) {
-      alert(error);
+      console.error("Email sending error:", error);
       setStatus("error");
       alert("Something went wrong");
     }
