@@ -50,9 +50,9 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
       ])
   );
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1.2]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1.2]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1.2]);
   useSphericalJoint(j3, card, [
     [0, 0, 0],
     [0, 1.5, 0],
@@ -123,10 +123,10 @@ function Lanyard({ maxSpeed = 50, minSpeed = 10 }) {
         <RigidBody position={[0.5, 0, 0]} {...segmentProps} ref={j1}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1, 0, 0]} {...segmentProps} ref={j2}>
+        <RigidBody position={[1.5, 0, 0]} {...segmentProps} ref={j2}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1.5, 0, 0]} {...segmentProps} ref={j3}>
+        <RigidBody position={[2.5, 0, 0]} {...segmentProps} ref={j3}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 

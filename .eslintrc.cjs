@@ -34,6 +34,7 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-floating-promises": "warn",
     "@typescript-eslint/no-shadow": "warn",
+    "react-hooks/exhaustive-deps": "off",
   },
   settings: {
     react: {
