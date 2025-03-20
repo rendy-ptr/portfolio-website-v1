@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./index.css";
-import ClientLayouts from "./layouts/ClientsLayouts";
+import Template from "./template";
 
 export const metadata: Metadata = {
   title: "My Portfolio",
@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ClientLayouts>{children}</ClientLayouts>
+        <Template>{children}</Template>
       </body>
     </html>
   );

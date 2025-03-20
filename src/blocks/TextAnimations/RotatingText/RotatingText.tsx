@@ -17,7 +17,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
   (
     {
       texts,
-      prefix = "", // Default value untuk prefix
+      prefix = "",
       transition = { type: "spring", damping: 25, stiffness: 300 },
       initial = { y: "100%", opacity: 0 },
       animate = { y: 0, opacity: 1 },
@@ -161,7 +161,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     return (
       <div className="flex items-center">
         {/* Teks konstan (prefix) */}
-        {prefix && <span className="text-4xl mr-4 font-semibold text-[#CEC8B6]">{prefix}</span>}
+        {prefix && <span className="text-4xl mr-4 font-semibold text-white">{prefix}</span>}
         {/* Elemen yang berotasi */}
         <motion.span
           className={cn("flex flex-wrap whitespace-pre-wrap relative", mainClassName)}

@@ -2,15 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Particles from "../magicui/particles";
+import dynamic from "next/dynamic";
 
-const ParticlesDemo = () => {
+// Gunakan dynamic import biar gak error saat SSR
+const Particles = dynamic(() => import("../magicui/particles"), { ssr: false });
+
+const ParticlesWrapper = () => {
   const { theme } = useTheme();
-  const [color, setColor] = useState("#ffffff");
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000");
-  }, [theme]);
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
+  const color = theme === "dark" ? "#ffffff" : "#000000";
 
   return (
     <div className="fixed top-0 left-0 w-full h-full z-1 pointer-events-none">
@@ -19,4 +26,4 @@ const ParticlesDemo = () => {
   );
 };
 
-export default ParticlesDemo;
+export default ParticlesWrapper;

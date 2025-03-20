@@ -1,8 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import React, { useEffect, useRef, useState } from "react";
 import type { ParticlesProps, Circle } from "@/types/registry/registryType";
 import { type MousePosition } from "@/types/registry/registryType";
+
+const isBrowser = typeof window !== "undefined";
 
 function MousePosition(): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
@@ -11,6 +11,7 @@ function MousePosition(): MousePosition {
   });
 
   useEffect(() => {
+    if (!isBrowser) return;
     const handleMouseMove = (event: MouseEvent) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };

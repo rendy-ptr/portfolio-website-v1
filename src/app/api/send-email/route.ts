@@ -2,6 +2,33 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import type SMTPTransport from "nodemailer/lib/smtp-transport";
+import fs from "fs";
+import path from "path";
+import winston from "winston";
+
+// Create logs directory if it doesn't exist
+const logDir = path.join(process.cwd(), "logs");
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
+}
+
+const logFilePath = path.join(logDir, "errors.log");
+
+// Winston Logger
+const logger = winston.createLogger({
+  level: "error",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({ timestamp, message }) => `[${timestamp}] ${message}`)
+  ),
+  transports: [
+    new winston.transports.File({ filename: logFilePath, maxsize: 5 * 1024 * 1024, maxFiles: 3 }),
+  ],
+});
+
+const logError = (error: unknown) => {
+  logger.error(error);
+};
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,7 +63,7 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Email sending error:", error);
+    logError(error);
     return NextResponse.json(
       {
         error: "Failed to send email",

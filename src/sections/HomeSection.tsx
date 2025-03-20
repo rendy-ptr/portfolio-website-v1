@@ -34,12 +34,12 @@ const HomeSection: FC = () => {
           {/* Judul */}
           <motion.h1
             variants={CreateAnimation("up", 1.2)}
-            className="text-4xl font-semibold text-[#D6D6D6]">
+            className="text-4xl font-semibold text-white">
             {TITLE.TEXT}
           </motion.h1>
           <motion.h1
             variants={CreateAnimation("up", 1.2)}
-            className="text-5xl font-bold text-[#EAE8D9]">
+            className="text-5xl font-bold text-white">
             {TITLE.NAME}
           </motion.h1>
 
@@ -63,7 +63,7 @@ const HomeSection: FC = () => {
           {/* Deskripsi */}
           <motion.p
             variants={CreateAnimation("up", 1.2)}
-            className="text-2xl font-semibold text-[#A3A3A3]">
+            className="text-2xl font-semibold text-white">
             {TITLE.DESCRIPTION}
             <span className="waving-hand" role="img" aria-label="waving hand">
               👋🏻
@@ -72,30 +72,20 @@ const HomeSection: FC = () => {
 
           {/* Tombol */}
           <motion.div variants={CreateAnimation("up", 1.2)} className="flex justify-start gap-3">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}>
-              <Button
-                variant="default"
-                icon={<lucideIcons.Download size={20} />}
-                onClick={() => alert("Download Bisa!!!")}
-                rounded={true}>
-                {BUTTONS.DOWNLOAD_CV}
-              </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}>
-              <Button
-                variant="inverted"
-                icon={<lucideIcons.ChevronRight size={20} />}
-                onClick={() => alert("Contact Me Bisa!!!!")}
-                rounded={true}>
-                {BUTTONS.CONTACT_ME}
-              </Button>
-            </motion.div>
+            <Button
+              variant="default"
+              icon={<lucideIcons.Download size={20} />}
+              onClick={() => alert("Download Bisa!!!")}
+              rounded={true}>
+              {BUTTONS.DOWNLOAD_CV}
+            </Button>
+            <Button
+              variant="inverted"
+              icon={<lucideIcons.ChevronRight size={20} />}
+              onClick={() => alert("Contact Me Bisa!!!!")}
+              rounded={true}>
+              {BUTTONS.CONTACT_ME}
+            </Button>
           </motion.div>
         </motion.div>
 

@@ -1,9 +1,8 @@
 "use client";
 
-import type React from "react";
-
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 import { motion, type MotionStyle } from "framer-motion";
+import { cn } from "@/lib/utils";
 import type { BorderBeamProps } from "@/types/registry/registryType";
 
 export const BorderBeam = ({
@@ -18,9 +17,14 @@ export const BorderBeam = ({
   reverse = false,
   initialOffset = 0,
 }: BorderBeamProps) => {
-  // Calculate the full path length (0% to 100%)
-  // Instead of animating from initialOffset-100 to initialOffset or vice versa,
-  // we'll animate through the full 100% path and use initialOffset as a starting point
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Hindari hydration mismatch
+
   const startPosition = initialOffset;
   const endPosition = startPosition + (reverse ? -100 : 100);
 
@@ -45,7 +49,7 @@ export const BorderBeam = ({
         animate={{ offsetDistance: `${endPosition}%` }}
         transition={{
           repeat: Number.POSITIVE_INFINITY,
-          repeatType: "loop", // This ensures a smooth loop without jumps
+          repeatType: "loop",
           ease: "linear",
           duration,
           delay: -delay,
