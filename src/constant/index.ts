@@ -88,6 +88,7 @@ export const PROJECTS = {
         { icon: reactIcons.NextJs, name: "Next JS" },
         { icon: reactIcons.Tailwind, name: "Tailwind CSS" },
         { icon: reactIcons.Typescript, name: "TypeScript" },
+        { icon: reactIcons.NodeJs, name: "Node JS" },
       ],
       github_url: "https://github.com/rendy-ptr/Personal-Website",
     },
