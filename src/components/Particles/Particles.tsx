@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 const Particles = dynamic(() => import("../magicui/particles"), { ssr: false });
 
 const ParticlesWrapper = () => {
-  const { theme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -17,11 +16,9 @@ const ParticlesWrapper = () => {
 
   if (!isMounted) return null;
 
-  const color = theme === "dark" ? "#ffffff" : "#000000";
-
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-1 pointer-events-none">
-      <Particles className="absolute inset-0" quantity={100} ease={80} color={color} refresh />
+    <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+      <Particles className="absolute inset-0" quantity={200} ease={80} color="#fff" refresh />
     </div>
   );
 };

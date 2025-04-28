@@ -161,10 +161,17 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     return (
       <div className="flex items-center">
         {/* Teks konstan (prefix) */}
-        {prefix && <span className="text-4xl mr-4 font-semibold text-white">{prefix}</span>}
+        {prefix && (
+          <span className="text-2xl sm:text-3xl md:text-4xl mr-2 sm:mr-4 font-semibold text-white">
+            {prefix}
+          </span>
+        )}
         {/* Elemen yang berotasi */}
         <motion.span
-          className={cn("flex flex-wrap whitespace-pre-wrap relative", mainClassName)}
+          className={cn(
+            "flex flex-wrap whitespace-pre-wrap relative text-lg sm:text-xl md:text-2xl lg:text-3xl",
+            mainClassName
+          )}
           {...rest}
           layout
           transition={transition}>

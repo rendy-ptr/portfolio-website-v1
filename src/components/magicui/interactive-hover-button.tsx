@@ -43,14 +43,14 @@ export const InteractiveHoverButton = React.forwardRef<
           {/* Dot */}
           <div
             className={cn(
-              "h-2 w-2 rounded-full transition-all duration-300 group-hover:scale-[100.8]",
+              "h-2 w-2 rounded-full transition-all duration-300 lg:group-hover:scale-[100.8]",
               styles.dot
             )}></div>
           {/* Text */}
           <span
             className={cn(
               "inline-block transition-all duration-300",
-              "group-hover:translate-x-12 group-hover:opacity-0"
+              "lg:group-hover:translate-x-12 lg:group-hover:opacity-0"
             )}>
             {children}
           </span>
@@ -59,7 +59,7 @@ export const InteractiveHoverButton = React.forwardRef<
         {/* Hover Content */}
         <div
           className={cn(
-            "absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100",
+            "absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 lg:group-hover:-translate-x-5 lg:group-hover:opacity-100",
             styles.hoverContent
           )}>
           <span>{children}</span>

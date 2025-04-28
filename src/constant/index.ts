@@ -105,14 +105,18 @@ export const PROJECTS = {
       github_url: "https://github.com/rendy-ptr/Imsakiyah-Schedule",
     },
     {
-      image: "/placeholder.svg",
-      title: "Backend API",
-      description: "A robust and scalable backend API for enterprise applications.",
+      image: "/projects/web-qrku.png",
+      title: "QR Generator",
+      description: "A web app that generates QR codes with security protection.",
       techStack: [
-        { icon: reactIcons.NodeJs, name: "Node.js" },
-        { icon: reactIcons.Mongodb, name: "MongoDB" },
+        { icon: reactIcons.React, name: "React JS" },
+        { icon: reactIcons.Typescript, name: "TypeScript" },
+        { icon: reactIcons.Tailwind, name: "Tailwind CSS" },
+        { icon: reactIcons.Bun, name: "Bun" },
+        { icon: reactIcons.Hono, name: "Hono JS" },
+        { icon: reactIcons.PostgreSQL, name: "PostgreSQL" },
       ],
-      github_url: "https://google.com",
+      github_url: "https://github.com/rendy-ptr/qrku",
     },
     {
       image: "/placeholder.svg",
@@ -153,6 +157,12 @@ export const CERTIFICATE = {
       publisher: "Publisher By • DICODING",
       body: "March, 2025 - March, 2028 • 3 years",
       link: "https://drive.google.com/file/d/1rXmOESJxCFQE6UWaBVj_mKYUxzUfSDPK/view?usp=sharing",
+    },
+    {
+      title: "Basics of data visualization",
+      publisher: "Publisher By • DICODING",
+      body: "April, 2025 - April, 2028 • 3 years",
+      link: "https://drive.google.com/file/d/1dPjajQThnkGK1RDXAXcS7m19we76fBfF/view?usp=sharing",
     },
   ],
 };

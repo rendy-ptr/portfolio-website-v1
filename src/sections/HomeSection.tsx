@@ -24,22 +24,22 @@ const HomeSection: FC = () => {
       whileInView="visible"
       viewport={{ once: false, amount: 0.5 }}
       variants={staggerContainer(0.5)}
-      className="flex items-center justify-center min-h-[110vh] overflow-visible py-16 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      className="flex items-center justify-center min-h-[90vh] sm:min-h-screen overflow-visible py-6 sm:py-8 md:py-16 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
       {/* Container utama dengan flex-row */}
-      <div className="flex w-full max-w-7xl">
+      <div className="flex w-full max-w-7xl flex-col md:flex-row gap-6 sm:gap-8 md:gap-0">
         {/* Kolom kiri: Profil, teks, dan tombol */}
         <motion.div
           variants={CreateAnimation("up", 1.2)}
-          className="flex flex-col items-start justify-center w-1/2 space-y-5 text-left">
+          className="flex flex-col items-center md:items-start justify-center w-full md:w-1/2 space-y-3 sm:space-y-4 md:space-y-5 text-center md:text-left">
           {/* Judul */}
           <motion.h1
             variants={CreateAnimation("up", 1.2)}
-            className="text-4xl font-semibold text-white">
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
             {TITLE.TEXT}
           </motion.h1>
           <motion.h1
             variants={CreateAnimation("up", 1.2)}
-            className="text-5xl font-bold text-white">
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             {TITLE.NAME}
           </motion.h1>
 
@@ -48,7 +48,7 @@ const HomeSection: FC = () => {
             <RotatingText
               texts={CUSTOM_TYPING.ROLES}
               prefix={CUSTOM_TYPING.TEXT}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-2 justify-center rounded-xl text-3xl font-semibold"
+              mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-1.5 sm:py-2 justify-center rounded-xl text-xl sm:text-2xl md:text-3xl font-semibold"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -63,7 +63,7 @@ const HomeSection: FC = () => {
           {/* Deskripsi */}
           <motion.p
             variants={CreateAnimation("up", 1.2)}
-            className="text-2xl font-semibold text-white">
+            className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
             {TITLE.DESCRIPTION}
             <span className="waving-hand" role="img" aria-label="waving hand">
               👋🏻
@@ -71,26 +71,32 @@ const HomeSection: FC = () => {
           </motion.p>
 
           {/* Tombol */}
-          <motion.div variants={CreateAnimation("up", 1.2)} className="flex justify-start gap-3">
+          <motion.div
+            variants={CreateAnimation("up", 1.2)}
+            className="flex flex-row justify-center md:justify-start gap-3 w-auto pt-2 sm:pt-3">
             <Button
               variant="default"
-              icon={<lucideIcons.Download size={20} />}
+              icon={<lucideIcons.Download size={18} className="sm:w-5" />}
               onClick={() => alert("Download Bisa!!!")}
-              rounded={true}>
+              rounded={true}
+              className="text-sm sm:text-base">
               {BUTTONS.DOWNLOAD_CV}
             </Button>
             <Button
               variant="inverted"
-              icon={<lucideIcons.ChevronRight size={20} />}
+              icon={<lucideIcons.ChevronRight size={18} className="sm:w-5" />}
               onClick={() => alert("Contact Me Bisa!!!!")}
-              rounded={true}>
+              rounded={true}
+              className="text-sm sm:text-base">
               {BUTTONS.CONTACT_ME}
             </Button>
           </motion.div>
         </motion.div>
 
         {/* Kolom kanan: Card3d */}
-        <motion.div ref={LanyardCardRef} className="w-1/2 flex items-center justify-center">
+        <motion.div
+          ref={LanyardCardRef}
+          className="hidden md:flex w-1/2 items-center justify-center">
           {isInView && memoizedLanyardCard}
         </motion.div>
       </div>
