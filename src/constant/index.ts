@@ -80,7 +80,7 @@ export const PROJECTS = {
   GITHUB: "GITHUB",
   LIST: [
     {
-      image: "/projects/web-portfolio.png",
+      image: "/projects/web-portfolio.jpeg",
       title: "Portfolio Website",
       description:
         "A sleek and modern portfolio showcasing my expertise in machine learning and software development.",
