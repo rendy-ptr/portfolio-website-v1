@@ -22,31 +22,60 @@ const TextReveal: FC = () => {
 
   useEffect(() => {
     const chars = containerRef.current?.querySelectorAll(".char");
+    const isMobile = window.innerWidth < 768;
 
     if (chars) {
-      gsap.fromTo(
-        chars,
-        {
-          color: "#333333",
-        },
-        {
-          color: "white",
-          duration: 0.5,
-          stagger: 0.02,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
-            end: "bottom 75%",
-            scrub: 1,
-            markers: false,
+      if (isMobile) {
+        gsap.fromTo(
+          chars,
+          {
+            color: "#333333",
           },
-        }
-      );
+          {
+            color: "white",
+            duration: 0.8,
+            stagger: 0.008,
+            ease: "power1.inOut",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 90%",
+              end: "center 45%",
+              scrub: 0.5,
+              markers: false,
+            },
+          }
+        );
+      } else {
+        gsap.fromTo(
+          chars,
+          {
+            color: "#333333",
+          },
+          {
+            color: "white",
+            duration: 0.5,
+            stagger: 0.02,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 70%",
+              end: "center 60%",
+              scrub: true,
+              markers: false,
+            },
+          }
+        );
+      }
     }
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -69,7 +98,7 @@ const TextReveal: FC = () => {
             color: "#333333",
             fontFamily: "inherit",
             lineHeight: "1.8",
-            fontSize: "1.5rem",
+            fontSize: "clamp(0.85rem, 0.7rem + 0.8vw, 1.5rem)",
           }}>
           {char}
         </span>

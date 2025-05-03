@@ -6,11 +6,11 @@ import ParticlesDemo from "@/components/Particles/Particles";
 
 export default function ClientLayouts({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen bg-[#171717] text-white">
+    <div className="relative min-h-screen bg-[#171717] text-white overflow-x-hidden">
       <ScrollProgress />
       <ParticlesDemo />
       <AnimatePresence mode="wait">
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
       </AnimatePresence>
     </div>
   );

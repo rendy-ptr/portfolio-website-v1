@@ -16,16 +16,16 @@ const AboutSection: React.FC = () => {
       viewport={{ once: true, amount: 0.5 }}
       variants={staggerContainer(0.5)}
       className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
-      <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+      <div className="flex flex-row items-center justify-between gap-4 mb-6">
         <motion.div variants={CreateAnimation("left", 1.0)} className="flex-1">
-          <h1 className="text-4xl font-bold text-white mb-8">{ABOUT_ME.TITLE}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white">{ABOUT_ME.TITLE}</h1>
         </motion.div>
 
         <motion.div variants={CreateAnimation("right", 1.0)} className="flex-shrink-0">
           <Globe />
         </motion.div>
       </div>
-      <motion.div variants={CreateAnimation("up", 1.0)} className="mt-4 mb-8">
+      <motion.div variants={CreateAnimation("up", 1.0)} className="w-full">
         <TextReveal />
       </motion.div>
     </motion.section>
