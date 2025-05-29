@@ -18,16 +18,17 @@ const AboutSection: React.FC = () => {
       className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16">
       <div className="flex flex-row items-center justify-between gap-4 mb-6">
         <motion.div variants={CreateAnimation("left", 1.0)} className="flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold text-white">{ABOUT_ME.TITLE}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            {ABOUT_ME.TITLE}
+          </h1>
+          <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-0 mt-1 rounded-full"></div>
         </motion.div>
 
         <motion.div variants={CreateAnimation("right", 1.0)} className="flex-shrink-0">
           <Globe />
         </motion.div>
       </div>
-      <motion.div variants={CreateAnimation("up", 1.0)} className="w-full">
-        <TextReveal />
-      </motion.div>
+      <TextReveal />
     </motion.section>
   );
 };

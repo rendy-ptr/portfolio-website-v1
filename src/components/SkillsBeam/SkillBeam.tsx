@@ -12,7 +12,7 @@ const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React
       <div
         ref={ref}
         className={cn(
-          "z-10 w-full flex size-12 items-center justify-center bg-transparent",
+          "z-10 flex size-10 sm:size-12 md:size-16 items-center justify-center bg-transparent",
           className
         )}>
         {children}
@@ -43,65 +43,65 @@ export function SkillBeam() {
 
   return (
     <div
-      className="relative flex w-full mx-auto items-center justify-center overflow-hidden bg-transparent"
+      className="relative flex w-full max-w-full mx-auto items-center justify-center overflow-hidden bg-transparent py-4 sm:py-8"
       ref={containerRef}>
-      <div className="flex h-full w-full flex-col items-stretch justify-between gap-10">
+      <div className="flex h-full w-full max-w-md sm:max-w-2xl lg:max-w-7xl flex-col items-stretch justify-between gap-4 sm:gap-6 md:gap-10">
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefReact} className="size-16">
+          <Circle ref={divRefReact}>
             <Icons.react />
           </Circle>
-          <Circle ref={divRefTypescript} className="size-16">
+          <Circle ref={divRefTypescript}>
             <Icons.typescript />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefNextjs} className="size-16">
+          <Circle ref={divRefNextjs}>
             <Icons.next />
           </Circle>
-          <Circle ref={divRefPython} className="size-16">
+          <Circle ref={divRefPython}>
             <Icons.python />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefExpo} className="size-16">
+          <Circle ref={divRefExpo}>
             <Icons.expo />
           </Circle>
-          <Circle ref={divRefExpress} className="size-16">
+          <Circle ref={divRefExpress}>
             <Icons.express />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefCss} className="size-16">
+          <Circle ref={divRefCss}>
             <Icons.css />
           </Circle>
-          <Circle ref={divRefSkills} className="size-16">
+          <Circle ref={divRefSkills}>
             <TextSkills />
           </Circle>
-          <Circle ref={divRefJavascript} className="size-16">
+          <Circle ref={divRefJavascript}>
             <Icons.javascript />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefLaravel} className="size-16">
+          <Circle ref={divRefLaravel}>
             <Icons.laravel />
           </Circle>
-          <Circle ref={divRefPandas} className="size-16">
+          <Circle ref={divRefPandas}>
             <Icons.pandas />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefMysql} className="size-16">
+          <Circle ref={divRefMysql}>
             <Icons.mysql />
           </Circle>
-          <Circle ref={divRefMongodb} className="size-16">
+          <Circle ref={divRefMongodb}>
             <Icons.mongodb />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <Circle ref={divRefTailwind} className="size-16">
+          <Circle ref={divRefTailwind}>
             <Icons.tailwind />
           </Circle>
-          <Circle ref={divRefHtml} className="size-16">
+          <Circle ref={divRefHtml}>
             <Icons.html />
           </Circle>
         </div>
@@ -111,22 +111,22 @@ export function SkillBeam() {
         containerRef={containerRef}
         fromRef={divRefReact}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefNextjs}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefExpo}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
@@ -139,45 +139,45 @@ export function SkillBeam() {
         containerRef={containerRef}
         fromRef={divRefLaravel}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefMysql}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefTailwind}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefTypescript}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
         reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefPython}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
         reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefExpress}
         toRef={divRefSkills}
-        curvature={75}
-        endYOffset={10}
+        curvature={50}
+        endYOffset={5}
         reverse
       />
       <AnimatedBeam
@@ -192,33 +192,34 @@ export function SkillBeam() {
         containerRef={containerRef}
         fromRef={divRefPandas}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
         reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefMongodb}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
         reverse
       />
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={divRefHtml}
         toRef={divRefSkills}
-        curvature={-75}
-        endYOffset={10}
+        curvature={-50}
+        endYOffset={5}
         reverse
       />
     </div>
   );
 }
+
 const TextSkills = () => {
   return (
-    <div className="w-[30rem] bg-[#27272a] p-6 rounded-xl outline outline-2 outline-[#2c323c]  flex items-center justify-center">
-      <h1 className="text-6xl font-bold bg-gradient-to-b from-gray-100 to-gray-600 bg-clip-text text-transparent">
+    <div className="w-[20rem] sm:w-[24rem] md:w-[30rem] bg-[#27272a] p-4 sm:p-6 rounded-xl outline-2 outline-[#2c323c] flex items-center justify-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-gray-100 to-gray-600 bg-clip-text text-transparent">
         {SKILLS.TITLE_ANIMATED_BEAM}
       </h1>
     </div>

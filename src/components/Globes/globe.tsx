@@ -11,7 +11,6 @@ function Scene() {
 
     // Rotasi hanya pada sumbu Y
     meshRef.current.rotation.y += 0.6 * delta;
-    // Menghapus rotasi pada sumbu X
   });
 
   return (
@@ -23,23 +22,18 @@ function Scene() {
 }
 
 export default function Globe() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-
   return (
     <div className="relative">
       <div
-        className="flex-shrink-0"
+        className="flex-shrink-0 rounded-full"
         style={{
           backgroundColor: "#232323",
-          borderRadius: "50%",
-          width: isMobile ? "50px" : "60px",
-          height: isMobile ? "50px" : "60px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           boxShadow: "0 0 15px rgba(170, 170, 170, 0.3)",
         }}>
-        <div className={`${isMobile ? "w-[55px] h-[55px]" : "w-[65px] h-[65px]"}`}>
+        <div className="w-[55px] h-[55px] md:w-[65px] md:h-[65px]">
           <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
             <Scene />
           </Canvas>

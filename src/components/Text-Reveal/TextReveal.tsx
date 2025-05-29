@@ -21,60 +21,45 @@ const TextReveal: FC = () => {
   }, [isInView, controls]);
 
   useEffect(() => {
-    const chars = containerRef.current?.querySelectorAll(".char");
-    const isMobile = window.innerWidth < 768;
+    if (!containerRef.current) return;
 
-    if (chars) {
-      if (isMobile) {
-        gsap.fromTo(
-          chars,
-          {
-            color: "#333333",
-          },
-          {
-            color: "white",
-            duration: 0.8,
-            stagger: 0.008,
-            ease: "power1.inOut",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 90%",
-              end: "center 45%",
-              scrub: 0.5,
-              markers: false,
-            },
-          }
-        );
-      } else {
-        gsap.fromTo(
-          chars,
-          {
-            color: "#333333",
-          },
-          {
-            color: "white",
-            duration: 0.5,
-            stagger: 0.02,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 70%",
-              end: "center 60%",
-              scrub: true,
-              markers: false,
-            },
-          }
-        );
+    const ctx = gsap.context(() => {
+      const chars = containerRef.current!.querySelectorAll(".char");
+      if (chars.length === 0) {
+        return;
       }
-    }
+
+      const isMobile = window.innerWidth < 768;
+
+      gsap.fromTo(
+        chars,
+        { color: "#333333" },
+        {
+          color: "white",
+          duration: isMobile ? 0.8 : 0.5,
+          stagger: isMobile ? 0.008 : 0.02,
+          ease: isMobile ? "power1.inOut" : "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: isMobile ? "top 90%" : "top 70%",
+            end: isMobile ? "center 45%" : "center 60%",
+            scrub: true,
+            markers: false, // Ubah ke true untuk debugging
+          },
+        }
+      );
+    }, containerRef);
+
     const handleResize = () => {
-      ScrollTrigger.refresh();
+      if (containerRef.current) {
+        ScrollTrigger.refresh();
+      }
     };
 
     window.addEventListener("resize", handleResize);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert(); // Membersihkan semua animasi dalam context
       window.removeEventListener("resize", handleResize);
     };
   }, []);

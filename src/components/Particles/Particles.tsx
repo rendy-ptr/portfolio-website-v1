@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 
 // Gunakan dynamic import biar gak error saat SSR
