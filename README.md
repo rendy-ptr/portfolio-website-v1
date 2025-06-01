@@ -13,6 +13,7 @@ Sebuah website personal yang dibuat untuk menampilkan project-project terbaik da
 
 - Animasi interaktif
 - Tampilan responsif untuk HP dan desktop
+- Pre commit untuk kemudahan developer
 
 ## 🚀 Cara Menjalankan
 
