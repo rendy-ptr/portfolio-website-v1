@@ -1,7 +1,8 @@
 # Portfolio Website V1
 ## 🤖 Demo URL
+WARNING, fitur kirim email tidak berfungsi karena key env tidak disertakan dalam proyek ini, karena key env digunakan untuk kebutuhan di proyek lain, sehingga deploy saat ini hanya untuk kebutuhan demo saja.
 
-- #
+- https://portfolio-website-v1-rouge-nu.vercel.app/
 
 ## 📋 Deskripsi
 
