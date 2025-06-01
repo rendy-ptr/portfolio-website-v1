@@ -1,50 +1,87 @@
-# React + TypeScript + Vite
+# Portfolio Website V1
+## 🤖 Demo URL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- #
 
-Currently, two official plugins are available:
+## 📋 Deskripsi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sebuah website personal yang dibuat untuk menampilkan project-project terbaik dan sebagai sarana memperkenalkan diri secara profesional di dunia digital.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## ✨ Fitur
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Animasi interaktif
+- Tampilan responsif untuk HP dan desktop
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚀 Cara Menjalankan
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone Project**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   git clone https://github.com/rendy-ptr/portfolio-website-v1.git
+   ```
+
+2. **Open Directory**
+
+   ```bash
+   cd portfolio-website-v1
+   ```
+
+3. **Install dependensi**
+
+   ```bash
+   npm install
+   ```
+
+4. **Atur variabel lingkungan**
+
+   - Buat file `env.local` atau jalankan perintah:
+      ```
+      cp env.example env.local
+     ```
+   - Kemudian isi env sesuai dengan akun smtp masing masing :
+     ```
+      EMAIL_HOST=your.smtp.server
+      EMAIL_PORT=your_smtp_port
+      EMAIL_SECURE=your_smtp_secure
+      EMAIL_USER=your_smtp_username
+      EMAIL_PASS=your_smtp_password
+      EMAIL_FROM=your_email_from
+      EMAIL_TO=your_email_to
+     ```
+
+5. **Jalankan aplikasi**
+     ```bash
+      npm run dev
+     ```
+
+6. **Build untuk Production**
+     ```bash
+      npm run build
+     ```
+
+## 📋 Persyaratan Sistem
+
+- Node.js 20.x atau lebih baru
+- Akun SMTP
+
+## 🛠️ Teknologi yang Digunakan
+
+- Next.js
+- Typescript
+- Tailwind Css
+- Node.js
+- Three.js
+
+## 📝 Penggunaan
+
+1. Buka aplikasi di browser (`http://localhost:3000`).
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+## 🙏 Terima Kasih
+
+Terima kasih kepada semua pihak yang bisa membantu dan menyediakan ide ide untuk proyek ini 🙏
